@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+  <meta name="description" content="题目：Given a non-empty array of integers, return the k most frequent elements. 例子：Input: nums = [1,1,1,2,2,3], k = 2Output: [1,2]Input: nums = [1], k = 1Output: [1] 注意： You may assume k is always valid,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/index.html">
+<meta property="og:title" content="347. Top K Frequent Elements">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/12/14/347-Top-K-Frequent-Elements/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta property="og:description" content="题目：Given a non-empty array of integers, return the k most frequent elements. 例子：Input: nums = [1,1,1,2,2,3], k = 2Output: [1,2]Input: nums = [1], k = 1Output: [1] 注意： You may assume k is always valid,">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.582Z">
+<meta property="og:updated_time" content="2018-12-18T19:06:43.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta name="twitter:title" content="347. Top K Frequent Elements">
+<meta name="twitter:description" content="题目：Given a non-empty array of integers, return the k most frequent elements. 例子：Input: nums = [1,1,1,2,2,3], k = 2Output: [1,2]Input: nums = [1], k = 1Output: [1] 注意： You may assume k is always valid,">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/12/14/347-Top-K-Frequent-Elements/">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>My first blog | Jiaao & 7</title>
+  <title>347. Top K Frequent Elements | Jiaao & 7</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/08/18/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/12/14/347-Top-K-Frequent-Elements/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaao">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My first blog
+          <h1 class="post-title" itemprop="name headline">347. Top K Frequent Elements
               
             
           </h1>
@@ -322,7 +322,7 @@
                 
               
 
-              <time title="Created: 2018-08-18 11:05:01" itemprop="dateCreated datePublished" datetime="2018-08-18T11:05:01+02:00">2018-08-18</time>
+              <time title="Created: 2018-12-14 04:12:12" itemprop="dateCreated datePublished" datetime="2018-12-14T04:12:12+01:00">2018-12-14</time>
             
 
             
@@ -339,7 +339,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
+                <time title="Modified: 2018-12-18 20:06:43" itemprop="dateModified" datetime="2018-12-18T20:06:43+01:00">2018-12-18</time>
               
             
           </span>
@@ -372,8 +372,20 @@
       
 
       
-        <h1 id="The-words-before-my-blog"><a href="#The-words-before-my-blog" class="headerlink" title="The words before my blog."></a>The words before my blog.</h1><p>小七真可爱！</p>
-<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>In this blog, I will share my life and some knowledge.  </p>
+        <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>Given a non-empty array of integers, return the k most frequent elements.</p>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><p>Input: nums = [1,1,1,2,2,3], k = 2<br>Output: [1,2]<br>Input: nums = [1], k = 1<br>Output: [1]</p>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><ul>
+<li>You may assume k is always valid, 1 ≤ k ≤ number of unique elements.</li>
+<li>Your algorithm’s time complexity must be better than O(n log n), where n is the array’s size.<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2>统计出现次数就可以想到哈希表，但是这里不要忽略了排序的问题，这个就是个哈希+排序。这里其实都是整数，所以可以用线性排序，比如桶排序。<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; topKFrequent(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; counts;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> num:nums)&#123;</span><br><span class="line">            counts[num]++;</span><br><span class="line">        &#125;</span><br><span class="line">        priority_queue&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;, greater&lt;<span class="keyword">int</span>&gt;&gt; heap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> count:counts)&#123;</span><br><span class="line">            heap.push(count.second);</span><br><span class="line">            <span class="keyword">if</span>(heap.size() &gt; k)&#123;</span><br><span class="line">                heap.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ret;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> i:counts)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i.second &gt;= heap.top())&#123;</span><br><span class="line">                ret.push_back(i.first);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ol>
+<li>C++自己带的heap，在库<code>&lt;queue&gt;</code>里，<a href="https://en.cppreference.com/w/cpp/container/priority_queue" target="_blank" rel="noopener">Doc</a></li>
+<li>复习了<code>unordered_map&lt;type, type&gt;</code>，用iterator时候，索引为<code>i.first</code>，数值为<code>i.second</code>。</li>
+<li>散列表复杂度$n$，二叉堆插入元素复杂度是$log(k)$，$k$为堆的高度。插入了$n$个元素，所以总的复杂度是$nlog(k)$。</li>
+<li>堆的高度只需要$k$，如果堆高于$k$了，就扔掉最后的元素。</li>
+<li>c++的iterator：<code>for(auto i:nums)</code></li>
+</ol>
 
       
     </div>
@@ -401,14 +413,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Sunny7464/2018/12/13/96-Unique-Binary-Search-Trees/" rel="next" title="96. Unique Binary Search Trees">
+                <i class="fa fa-chevron-left"></i> 96. Unique Binary Search Trees
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Sunny7464/2018/08/19/Sorting-Algorithms/" rel="prev" title="Sorting Algorithms">
-                Sorting Algorithms <i class="fa fa-chevron-right"></i>
+              <a href="/Sunny7464/2018/12/14/Leetcode-621-Task-Scheduler/" rel="prev" title="Leetcode 621. Task Scheduler">
+                Leetcode 621. Task Scheduler <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +535,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-words-before-my-blog"><span class="nav-number">1.</span> <span class="nav-text">The words before my blog.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子："><span class="nav-number">2.</span> <span class="nav-text">例子：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意："><span class="nav-number">3.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">4.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">5.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点："><span class="nav-number">6.</span> <span class="nav-text">知识点：</span></a></li></ol></div>
             
 
           </div>

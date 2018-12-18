@@ -108,24 +108,26 @@
 
 
 
-  <meta name="description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+  <meta name="description" content="今天在读Faster R-CNN。 之前读过一次，当时正在看SSD，感觉Faster R-CNN的网络结构和SSD有一些相似，所以Faster R-CNN就只是粗略地看了一下。今天当我有时间仔细读了一下以后，突然被一个问题卡住了——下图中从feature map到256-d向量的intermediate networks是什么？从图中可以看出，我们截取了CNN（比如VGG-16）的前半部分用于提取">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/index.html">
+<meta property="og:title" content="Faster R-CNN中的RPN">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/11/02/Faster-R-CNN中的RPN/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta property="og:description" content="今天在读Faster R-CNN。 之前读过一次，当时正在看SSD，感觉Faster R-CNN的网络结构和SSD有一些相似，所以Faster R-CNN就只是粗略地看了一下。今天当我有时间仔细读了一下以后，突然被一个问题卡住了——下图中从feature map到256-d向量的intermediate networks是什么？从图中可以看出，我们截取了CNN（比如VGG-16）的前半部分用于提取">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.582Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181102033008862.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDk5NDkxMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2018-12-18T19:21:42.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta name="twitter:title" content="Faster R-CNN中的RPN">
+<meta name="twitter:description" content="今天在读Faster R-CNN。 之前读过一次，当时正在看SSD，感觉Faster R-CNN的网络结构和SSD有一些相似，所以Faster R-CNN就只是粗略地看了一下。今天当我有时间仔细读了一下以后，突然被一个问题卡住了——下图中从feature map到256-d向量的intermediate networks是什么？从图中可以看出，我们截取了CNN（比如VGG-16）的前半部分用于提取">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181102033008862.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDk5NDkxMw==,size_16,color_FFFFFF,t_70">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/11/02/Faster-R-CNN中的RPN/">
 
 
 
@@ -135,7 +137,7 @@
   };
 </script>
 
-  <title>My first blog | Jiaao & 7</title>
+  <title>Faster R-CNN中的RPN | Jiaao & 7</title>
   
 
 
@@ -280,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/08/18/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/11/02/Faster-R-CNN中的RPN/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaao">
@@ -297,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My first blog
+          <h1 class="post-title" itemprop="name headline">Faster R-CNN中的RPN
               
             
           </h1>
@@ -322,7 +324,7 @@
                 
               
 
-              <time title="Created: 2018-08-18 11:05:01" itemprop="dateCreated datePublished" datetime="2018-08-18T11:05:01+02:00">2018-08-18</time>
+              <time title="Created: 2018-11-02 03:17:52" itemprop="dateCreated datePublished" datetime="2018-11-02T03:17:52+01:00">2018-11-02</time>
             
 
             
@@ -339,7 +341,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
+                <time title="Modified: 2018-12-18 20:21:42" itemprop="dateModified" datetime="2018-12-18T20:21:42+01:00">2018-12-18</time>
               
             
           </span>
@@ -372,8 +374,14 @@
       
 
       
-        <h1 id="The-words-before-my-blog"><a href="#The-words-before-my-blog" class="headerlink" title="The words before my blog."></a>The words before my blog.</h1><p>小七真可爱！</p>
-<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>In this blog, I will share my life and some knowledge.  </p>
+        <p>今天在读Faster R-CNN。</p>
+<p>之前读过一次，当时正在看SSD，感觉Faster R-CNN的网络结构和SSD有一些相似，所以Faster R-CNN就只是粗略地看了一下。今天当我有时间仔细读了一下以后，突然被一个问题卡住了——下图中从feature map到256-d向量的intermediate networks是什么？<br><img src="https://img-blog.csdnimg.cn/20181102033008862.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MDk5NDkxMw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">从图中可以看出，我们截取了CNN（比如VGG-16）的前半部分用于提取特征（常常是直觉用pre-trained model就行了），然后在输出的Feature Map中应用一个3 x 3的Sliding Window，每一个位置输出k个bounding boxes。但是，从这个Feature Map到bounding box的intermediate layer输出的是一个256-d的特征向量，原文中说是这个特征向量通过了全连接层得到的k个bounding boxes，那么这里的intermediate layer究竟是什么呢？</p>
+<p>从<a href="https://www.youtube.com/watch?v=X3IlbjQs190" target="_blank" rel="noopener">这部视频</a>中我恍然大悟，从Feature Map到256-d特征向量是非常Straightforward的一件事（当我看懂了才觉得Straightforward以及我太菜了）所谓的Sliding Window，只是为了模型的原理更容易被解释，毕竟卷积层的本质就是一个kernel在一个feature map上面做sliding window。如果用Sliding window的方法来解释，这个过程变成了：一个3 x 3的窗口在输入RPN的Feature Map上面滑动（注意，另一个容易令人产生迷惑感的地方在于，虽然窗口只有 3 x 3，==但是需要 256 x 3 x 3 x 256个参数==才能把一个==3 x 3 x 256==的输入映射到一个==1 x 1 x 256==的vector），在滑动过程中，输入RPN的Feature Map的每一个像素值都由此得到了一个256-d的vector（或512-d，取决于用ZF还是用VGG-16），然后这个vector通过了一个全连接层得到了6k个输出，即，每一个 3 x 3的crop都会得到6k个输出，为k个bounding boxes的坐标、offset、objectiveness score（这里objectiveness score的意思是有object的可能性）。</p>
+<p>下面我来说为什么作者又用了一定的篇幅来讲从卷积的角度如何理解刚才的sliding window：</p>
+<p>实际上，前一层的Feature Map被256  x 3 x 3 x 256的kernel做卷积运算（<a href="https://zhuanlan.zhihu.com/p/44599606" target="_blank" rel="noopener">这篇知乎专栏</a>的图是非常好的一幅图），就可以得到W x H x 256的输出（W X H是输入RPN的feature map的resolution），这与sliding window在每一个位置都得到一个256-d vector的效果是一样的。关键就在于，这256-d vector如何能够直接在每一个位置都通过一个==相同==的全连接网络得到一个6k长的向量。这时候就要提到CNN的一个重要特性——通过卷积来实现空间上的参数共享。==一个256 x 1 x 1 x 6k 的kernel，本质上就是一个滑动的、将256个元素对应到6k个元素的小型全连接网络。== 这个观点来自于Fully Convolutional Networks那篇文章，感兴趣的读者可以看<a href="https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf" target="_blank" rel="noopener">Fully convolutional networks for semantic segmentation</a>. 这个网络确实只有256 x 6k个参数，读者非常自豪地说，比MultiBox的参数少多了，但第4页的注释5提到了如果你考虑将输入RPN的Feature Map转为一个个256-d vector的那层（即feature projection layers），那一层的参数数量是3 x 3 x 512 x 512，整体参数就也不算少了。 </p>
+<p>我们从头捋一遍，以VGG-16为例，根据视频中所讲，conv13的Feature Map是输入RPN的Feature Map（在该项目github的python实现中是conv5_3层），这个conv13的分辨率大约为40 x 60 ~ 2400。用一个3 x 3的Sliding Window（or, in fact, a kernel）走过Feature Map中的每一个像素点，将3 x 3 x 512的小块Feature Map映射到1 x 1 x 512 的Feature中，参数数量为512 x 3 x 3 x 512（我喜欢这样写一个卷积层的参数，因为正好是按照“上一层channel数”-本层的卷积大小-“本层的channel数”来排列，便于理解），接着通过一个全联结层，得到bounding box的坐标和分数。设k（生成的bounding box的数量）为9，则全联结层用一组参数将所有的512-d特征向量映射到9个数字，参数数量为512 x 9。总的参数为512 x 3 x 3 x 512 + 512 x 9。</p>
+<p>这个Sliding Window的机制，使该全联结网络的参数对于Feature Map中的每一个像素点是共享的，也就是说，所有的512-d的vector都是通过同一组参数做推断，这组参数应用于所有位置的像素点，所以才能够让RPN做到translational invariance。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>Long, J., Shelhamer, E., &amp; Darrell, T. (2015). Fully convolutional networks for semantic segmentation. Proceedings of the IEEE Computer Society Conference on Computer Vision and Pattern Recognition, 07–12–June, 3431–3440. <a href="https://doi.org/10.1109/CVPR.2015.7298965" target="_blank" rel="noopener">https://doi.org/10.1109/CVPR.2015.7298965</a></p>
 
       
     </div>
@@ -401,14 +409,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Sunny7464/2018/09/17/Learning-Algorithms-Data-Structure-Intro/" rel="next" title="[Learning Algorithms] - Data Structure Intro">
+                <i class="fa fa-chevron-left"></i> [Learning Algorithms] - Data Structure Intro
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Sunny7464/2018/08/19/Sorting-Algorithms/" rel="prev" title="Sorting Algorithms">
-                Sorting Algorithms <i class="fa fa-chevron-right"></i>
+              <a href="/Sunny7464/2018/11/03/自动驾驶nuScenes数据集——一个KITTI以外的新数据集/" rel="prev" title="自动驾驶nuScenes数据集——一个KITTI以外的新数据集">
+                自动驾驶nuScenes数据集——一个KITTI以外的新数据集 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +531,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-words-before-my-blog"><span class="nav-number">1.</span> <span class="nav-text">The words before my blog.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">1.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>

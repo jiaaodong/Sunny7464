@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+  <meta name="description" content="Mean subtraction 是一般会做的，相当于把整个点云平移到原点附近 Normalization 仅当不同的Feature是不同的Scale时候更加必要，但是从今天白天对雷达多普勒响应的分类中看，SVM需要Normalize。 PCA 方法常常用来降维，np.dot(X, X.T) 就是矩阵X的covariance matrix。这个矩阵一定是对称的、半正定的，因此可以对其应用奇异值分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/index.html">
+<meta property="og:title" content="CS231n笔记5-Neural Networks Part 2: Setting up the Data and the Loss">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/11/28/CS231n笔记5-Neural-Networks-Part-2-Setting-up-the-Data-and-the-Loss/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta property="og:description" content="Mean subtraction 是一般会做的，相当于把整个点云平移到原点附近 Normalization 仅当不同的Feature是不同的Scale时候更加必要，但是从今天白天对雷达多普勒响应的分类中看，SVM需要Normalize。 PCA 方法常常用来降维，np.dot(X, X.T) 就是矩阵X的covariance matrix。这个矩阵一定是对称的、半正定的，因此可以对其应用奇异值分">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.582Z">
+<meta property="og:updated_time" content="2018-12-18T19:13:32.806Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta name="twitter:title" content="CS231n笔记5-Neural Networks Part 2: Setting up the Data and the Loss">
+<meta name="twitter:description" content="Mean subtraction 是一般会做的，相当于把整个点云平移到原点附近 Normalization 仅当不同的Feature是不同的Scale时候更加必要，但是从今天白天对雷达多普勒响应的分类中看，SVM需要Normalize。 PCA 方法常常用来降维，np.dot(X, X.T) 就是矩阵X的covariance matrix。这个矩阵一定是对称的、半正定的，因此可以对其应用奇异值分">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/11/28/CS231n笔记5-Neural-Networks-Part-2-Setting-up-the-Data-and-the-Loss/">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>My first blog | Jiaao & 7</title>
+  <title>CS231n笔记5-Neural Networks Part 2: Setting up the Data and the Loss | Jiaao & 7</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/08/18/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/11/28/CS231n笔记5-Neural-Networks-Part-2-Setting-up-the-Data-and-the-Loss/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaao">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My first blog
+          <h1 class="post-title" itemprop="name headline">CS231n笔记5-Neural Networks Part 2: Setting up the Data and the Loss
               
             
           </h1>
@@ -322,7 +322,7 @@
                 
               
 
-              <time title="Created: 2018-08-18 11:05:01" itemprop="dateCreated datePublished" datetime="2018-08-18T11:05:01+02:00">2018-08-18</time>
+              <time title="Created: 2018-11-28 05:01:33" itemprop="dateCreated datePublished" datetime="2018-11-28T05:01:33+01:00">2018-11-28</time>
             
 
             
@@ -339,7 +339,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
+                <time title="Modified: 2018-12-18 20:13:32" itemprop="dateModified" datetime="2018-12-18T20:13:32+01:00">2018-12-18</time>
               
             
           </span>
@@ -372,8 +372,30 @@
       
 
       
-        <h1 id="The-words-before-my-blog"><a href="#The-words-before-my-blog" class="headerlink" title="The words before my blog."></a>The words before my blog.</h1><p>小七真可爱！</p>
-<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>In this blog, I will share my life and some knowledge.  </p>
+        <ul>
+<li>Mean subtraction 是一般会做的，相当于把整个点云平移到原点附近</li>
+<li>Normalization 仅当不同的Feature是不同的Scale时候更加必要，但是从今天白天对雷达多普勒响应的分类中看，SVM需要Normalize。</li>
+<li>PCA 方法常常用来降维，<code>np.dot(X, X.T)</code> 就是矩阵X的covariance matrix。这个矩阵一定是对称的、半正定的，因此可以对其应用奇异值分解。分解后得到了协方差矩阵的特征向量（并且<code>np.linalg.svd</code>所得到的特征向量已经按照对应的特征值由大到小的顺序拍好），所以原来的特征空间可以投影到任意比Feature维度低的空间里。</li>
+<li>variance 小的维度是噪声更大的维度。</li>
+<li>Whitening 就是把所有维度按照特征值方向投影后，再把每个维度处以该维度的特征值。</li>
+<li>PCA和Whitening在DL里基本不需要，但是Normalization和centering很重要。</li>
+<li>将PCA和Whitening转换回去？可以通过乘Transormation Matrix的转置</li>
+<li>==所有的预处理都要基于训练集的数据，而不是测试集的数据。比如：mean-subtraction 要减去训练集的mean，pca要拿训练集来计算特征向量==</li>
+<li>==不能将权值初始化为0！！否则每一个Neuron的输出就成了一样的，反向传播时候函数的更新也变成了一样的。但是实际上神经元是不对称的==。这叫做Asymmetry breaking</li>
+<li>可以将权值初始化为标准正态分布与一个很小的数的乘积，但是特别小的初始化值会令权重更新时候的值也变小，在深度学习时候导致收敛变慢。</li>
+<li>初始化为标准正太分布后，每个neuron是一个<code>M x N</code>大小的矩阵，共<code>MN</code>个元素，每个元素都满足标准正态分布，但该neuron的输出会因此而拥有更大标准差的分布，所以我们在初始化neuron的时候要根据输入的数量改变初始化正态分布的标准差。主要的原因是因为输入和输出之间的相乘与相加。</li>
+<li>三种形式的初始化：<code>w = np.random.randn(n) / sqrt(n)</code>，<code>w = np.random.rand(n) * 1 / (n1 + n2)</code> <code>w = np.random.randn(n) * sqrt(2.0/n)</code>。第三种是为ReLU专门设置的。</li>
+<li>bias通常都直接初始化为0</li>
+<li>Batch Normalization 可以有效地缓解不良的初始化，而且batch normalization 是一个可微分的过程。这个过程在神经元之后，Non-linearity 之前</li>
+<li>从L2-norm regularization的求导可以得出结论：权值在训练过程中缓慢趋近于0</li>
+<li>L1 regularization 是显性的特征值挑选</li>
+<li>在测试的时候不用Dropout但是要把所有的输出乘以Dropout的系数。因为之前有Dropout的时候，实际上每一层的Activation信号增强了，否则难以达到与没有Dropout时候相同的信号强度</li>
+<li>但这个放缩通常被加在training中，除以probability</li>
+<li>Cross-entropy 在类别标签非常多的时候不好用，可以用一棵树来实现层级式的判断</li>
+<li>如果每个样本的label不是一个单一的数字，而是一个向量，我们可以把损失函数写成两种形式，一种是$max(1 - \delta * label)$，另一种是把问题看成回归问题，将scores向量回归到label向量。</li>
+<li>尽量不要构建L2-norm损失函数，因为在差距较大的时候会得到非常大的更新值，而且这个时候要求具体值的精确度，而不像softmax——只要求数量级之间的关系对了就行。</li>
+<li>在遇到回归问题时候，先考虑能不能离散化为分类问题。</li>
+</ul>
 
       
     </div>
@@ -401,14 +423,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Sunny7464/2018/11/28/C-Primer-Plus-学习笔记2：分支语句和逻辑运算符/" rel="next" title="C++ Primer Plus 学习笔记2：分支语句和逻辑运算符 ">
+                <i class="fa fa-chevron-left"></i> C++ Primer Plus 学习笔记2：分支语句和逻辑运算符 
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Sunny7464/2018/08/19/Sorting-Algorithms/" rel="prev" title="Sorting Algorithms">
-                Sorting Algorithms <i class="fa fa-chevron-right"></i>
+              <a href="/Sunny7464/2018/12/03/CS231n笔记6-Neural-Networks-Part-3-Learning-and-Evaluation/" rel="prev" title="CS231n笔记6-Neural Networks Part 3: Learning and Evaluation">
+                CS231n笔记6-Neural Networks Part 3: Learning and Evaluation <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -454,17 +480,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -509,22 +526,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-words-before-my-blog"><span class="nav-number">1.</span> <span class="nav-text">The words before my blog.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

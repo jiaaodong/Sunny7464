@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+  <meta name="description" content="Description: Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/index.html">
+<meta property="og:title" content="Leetcode 139. Word Break">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/12/10/Leetcode-139-Word-Break/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta property="og:description" content="Description: Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.582Z">
+<meta property="og:updated_time" content="2018-12-18T19:10:08.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta name="twitter:title" content="Leetcode 139. Word Break">
+<meta name="twitter:description" content="Description: Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/12/10/Leetcode-139-Word-Break/">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>My first blog | Jiaao & 7</title>
+  <title>Leetcode 139. Word Break | Jiaao & 7</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/08/18/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/12/10/Leetcode-139-Word-Break/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaao">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My first blog
+          <h1 class="post-title" itemprop="name headline">Leetcode 139. Word Break
               
             
           </h1>
@@ -322,7 +322,7 @@
                 
               
 
-              <time title="Created: 2018-08-18 11:05:01" itemprop="dateCreated datePublished" datetime="2018-08-18T11:05:01+02:00">2018-08-18</time>
+              <time title="Created: 2018-12-10 06:42:08" itemprop="dateCreated datePublished" datetime="2018-12-10T06:42:08+01:00">2018-12-10</time>
             
 
             
@@ -339,7 +339,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
+                <time title="Modified: 2018-12-18 20:10:08" itemprop="dateModified" datetime="2018-12-18T20:10:08+01:00">2018-12-18</time>
               
             
           </span>
@@ -372,8 +372,28 @@
       
 
       
-        <h1 id="The-words-before-my-blog"><a href="#The-words-before-my-blog" class="headerlink" title="The words before my blog."></a>The words before my blog.</h1><p>小七真可爱！</p>
-<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>In this blog, I will share my life and some knowledge.  </p>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><ul>
+<li>Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</li>
+</ul>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><ul>
+<li>The same word in the dictionary may be reused multiple times in the segmentation.<ul>
+<li>You may assume the dictionary does not contain duplicate words.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p>Input: s = “leetcode”, wordDict = [“leet”, “code”]<br>Output: true<br>Explanation: Return true because “leetcode” can be segmented as “leet code”.</p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><p>Input: s = “applepenapple”, wordDict = [“apple”, “pen”]<br>Output: true<br>Explanation: Return true because “applepenapple” can be segmented as “apple pen apple”.<br>             Note that you are allowed to reuse a dictionary word.</p>
+<h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h3><p>Input: s = “catsandog”, wordDict = [“cats”, “dog”, “sand”, “and”, “cat”]<br>Output: false</p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>最简单的思路是，检查<code>s</code>的所有子字符串是否在<code>dict</code>中，如果不在就跳过检查下一个，如果在就检查剩下的部分<code>s&#39;</code>的所有子字符串是否在<code>dict</code>中，因此，每一个分割后的小问题之间互相包含，实际上这个题和《算法导论》中讲解动态规划的切木头的问题如出一辙，是典型的动态规划问题。<br>动态规划的核心思想在于“将已经解决的小问题记录在table里”，这个题中，需要记录的是数组的哪一部分已经满足<code>Dict</code>中的字符串组合，当检验未知部分时，可以跳过这些已知部分的检验。</p>
+<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">wordBreak</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; wordDict)</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">     <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;  dp_record(s.size() + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">        dp_record[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=s.size(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i - <span class="number">1</span>; j&gt;=<span class="number">0</span>; j--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(dp_record[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">string</span> word_to_check = s.substr(j, i-j);</span><br><span class="line">                    <span class="keyword">if</span>(one_dimensional_search(wordDict, word_to_check))</span><br><span class="line">                    &#123;</span><br><span class="line">                        dp_record[i] = <span class="literal">true</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;    </span><br><span class="line">         </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp_record[s.size()];</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">one_dimensional_search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; dict, <span class="built_in">string</span> word)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;dict.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (dict[i] == word)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ol>
+<li><code>s.substr()</code>是<code>string</code>类的方法，截取从起点<code>pos</code>开始的长度<code>n</code>的子数组。</li>
+<li><p><code>vector</code>声明的时候初始化:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">typename</span>&gt; variable_name(num_element, element_value)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>记录结果的数组比要检测的数组多一个元素，因为需要初始化位置有一个true才能开始第一轮判断。</p>
+</li>
+</ol>
 
       
     </div>
@@ -401,14 +421,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Sunny7464/2018/12/08/雷达项目回顾2/" rel="next" title="雷达项目回顾2">
+                <i class="fa fa-chevron-left"></i> 雷达项目回顾2
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Sunny7464/2018/08/19/Sorting-Algorithms/" rel="prev" title="Sorting Algorithms">
-                Sorting Algorithms <i class="fa fa-chevron-right"></i>
+              <a href="/Sunny7464/2018/12/11/Leetcode-62-Unique-Paths/" rel="prev" title="Leetcode 62. Unique Paths">
+                Leetcode 62. Unique Paths <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-words-before-my-blog"><span class="nav-number">1.</span> <span class="nav-text">The words before my blog.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">2.1.</span> <span class="nav-text">Example 1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">2.2.</span> <span class="nav-text">Example 2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-3"><span class="nav-number">2.3.</span> <span class="nav-text">Example 3:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路："><span class="nav-number">3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码："><span class="nav-number">4.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点："><span class="nav-number">5.</span> <span class="nav-text">知识点：</span></a></li></ol></div>
             
 
           </div>

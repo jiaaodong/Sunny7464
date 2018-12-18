@@ -108,20 +108,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Jiaao &amp; 7">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/archives/2018/08/index.html">
+  <meta name="description" content="Regularization 在神经网络中可以被解释为 Gradual Forgetting。 Softmax是泛化版本的Sigmoid Softmax可以作为一个neuron的firing rate Sigmoid的问题： Saturation Non zero-centered   tanh 和sigmoid 的关系：  $tanh(x) = 2* \sigma(2x) - 1$ ReLU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS231n笔记4-Neural Networks Part 1: Setting up the Architecture">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/11/27/CS231n笔记4-Neural-Networks-Part-1-Setting-up-the-Architecture/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
+<meta property="og:description" content="Regularization 在神经网络中可以被解释为 Gradual Forgetting。 Softmax是泛化版本的Sigmoid Softmax可以作为一个neuron的firing rate Sigmoid的问题： Saturation Non zero-centered   tanh 和sigmoid 的关系：  $tanh(x) = 2* \sigma(2x) - 1$ ReLU">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-12-18T19:15:02.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jiaao &amp; 7">
+<meta name="twitter:title" content="CS231n笔记4-Neural Networks Part 1: Setting up the Architecture">
+<meta name="twitter:description" content="Regularization 在神经网络中可以被解释为 Gradual Forgetting。 Softmax是泛化版本的Sigmoid Softmax可以作为一个neuron的firing rate Sigmoid的问题： Saturation Non zero-centered   tanh 和sigmoid 的关系：  $tanh(x) = 2* \sigma(2x) - 1$ ReLU">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/archives/2018/08/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/11/27/CS231n笔记4-Neural-Networks-Part-1-Setting-up-the-Architecture/">
 
 
 
@@ -131,7 +135,7 @@
   };
 </script>
 
-  <title>Archive | Jiaao & 7</title>
+  <title>CS231n笔记4-Neural Networks Part 1: Setting up the Architecture | Jiaao & 7</title>
   
 
 
@@ -178,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -223,7 +227,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/Sunny7464/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
   </li>
@@ -235,19 +239,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -273,113 +264,199 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 27 posts in total. Keep on posting.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/11/27/CS231n笔记4-Neural-Networks-Part-1-Setting-up-the-Architecture/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiaao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Sunny7464/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiaao & 7">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/Sunny7464/2018/08/19/Sorting-Algorithms/" itemprop="url">
-              
-                <span itemprop="name">Sorting Algorithms</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">CS231n笔记4-Neural Networks Part 1: Setting up the Architecture
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-19T13:41:47+02:00" content="2018-08-19">
-          08-19
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
+              
+                
+              
+
+              <time title="Created: 2018-11-27 05:23:57" itemprop="dateCreated datePublished" datetime="2018-11-27T05:23:57+01:00">2018-11-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-18 20:15:02" itemprop="dateModified" datetime="2018-12-18T20:15:02+01:00">2018-12-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Sunny7464/2018/08/18/my-first-blog/" itemprop="url">
-              
-                <span itemprop="name">My first blog</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-08-18T11:05:01+02:00" content="2018-08-18">
-          08-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
+      
+        <ul>
+<li>Regularization 在神经网络中可以被解释为 Gradual Forgetting。</li>
+<li>Softmax是泛化版本的Sigmoid</li>
+<li>Softmax可以作为一个neuron的firing rate</li>
+<li>Sigmoid的问题：<ol>
+<li>Saturation</li>
+<li>Non zero-centered</li>
+</ol>
+</li>
+<li>tanh 和sigmoid 的关系：<br>  $tanh(x) = 2* \sigma(2x) - 1$</li>
+<li>ReLU 是会导致梯度消失的，从而大面积的神经元“死亡”，因此出现了Leaky ReLU。</li>
+<li>Maxout：是ReLU和Leaky ReLU的泛化，但参数增加了一倍</li>
+<li>实践中怎么选择：用ReLU，但是注意Learning Rate，同时尽量监控网络中死掉的神经元。永远不用sigmoid。</li>
+<li>有一层Hidden Layer的神经网络是Universal Approximator</li>
+<li>与CNN相比，全连接网络对于层数的依赖没有那么明显（但3层一般比2层强）这有可能是因为CNN的分层体系</li>
+<li>层数太多了 Capacity就增强了，但层数太多了就可能学到数据中的噪音，这就是过拟合。</li>
+<li>实际上，用其他技巧来防止overfitting，而不是减少网络复杂度。（比如可以用L2 regularization, dropout, input noise）</li>
+<li>小的神经网络的解容易被困在局部最优，而且那些局部最优都不是很好。每次得到的解的方差很大。</li>
+<li>大的神经网络不好训练，一开始会有很多的解，但是当最优解被找到时候，是比较好的局部最优，而不是很依赖于随机初始化。</li>
+<li></li>
+</ul>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Sunny7464/2018/11/23/CS231n笔记3-Backpropagation-Intuitions/" rel="next" title="CS231n笔记3-Backpropagation, Intuitions">
+                <i class="fa fa-chevron-left"></i> CS231n笔记3-Backpropagation, Intuitions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Sunny7464/2018/11/28/C-Primer-Plus-学习笔记2：分支语句和逻辑运算符/" rel="prev" title="C++ Primer Plus 学习笔记2：分支语句和逻辑运算符 ">
+                C++ Primer Plus 学习笔记2：分支语句和逻辑运算符  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -576,6 +653,10 @@
   
 
   
+  <script type="text/javascript" src="/Sunny7464/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/Sunny7464/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 

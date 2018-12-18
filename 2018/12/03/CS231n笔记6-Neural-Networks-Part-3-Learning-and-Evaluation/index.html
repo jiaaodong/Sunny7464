@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+  <meta name="description" content="Centered-formula 是二阶近似的导数，可以用$f(x+h)$与$f(x-h)$的傅里叶级数证明 用双精度来做gradient checking 还是关于双精度的问题：有的时候数据太小了，很容易产生数值方面的问题，$1e^{-10}$以下就很不安全了。所以在计算Loss Function的时候可以考虑不处以Batch Size。如果能够放缩的话，$1e^{0}$是浮点数比较密集的地方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My first blog">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/index.html">
+<meta property="og:title" content="CS231n笔记6-Neural Networks Part 3: Learning and Evaluation">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/12/03/CS231n笔记6-Neural-Networks-Part-3-Learning-and-Evaluation/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta property="og:description" content="Centered-formula 是二阶近似的导数，可以用$f(x+h)$与$f(x-h)$的傅里叶级数证明 用双精度来做gradient checking 还是关于双精度的问题：有的时候数据太小了，很容易产生数值方面的问题，$1e^{-10}$以下就很不安全了。所以在计算Loss Function的时候可以考虑不处以Batch Size。如果能够放缩的话，$1e^{0}$是浮点数比较密集的地方">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.582Z">
+<meta property="og:updated_time" content="2018-12-18T19:12:59.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My first blog">
-<meta name="twitter:description" content="The words before my blog.小七真可爱！ PrefaceIn this blog, I will share my life and some knowledge.">
+<meta name="twitter:title" content="CS231n笔记6-Neural Networks Part 3: Learning and Evaluation">
+<meta name="twitter:description" content="Centered-formula 是二阶近似的导数，可以用$f(x+h)$与$f(x-h)$的傅里叶级数证明 用双精度来做gradient checking 还是关于双精度的问题：有的时候数据太小了，很容易产生数值方面的问题，$1e^{-10}$以下就很不安全了。所以在计算Loss Function的时候可以考虑不处以Batch Size。如果能够放缩的话，$1e^{0}$是浮点数比较密集的地方">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/08/18/my-first-blog/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/12/03/CS231n笔记6-Neural-Networks-Part-3-Learning-and-Evaluation/">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>My first blog | Jiaao & 7</title>
+  <title>CS231n笔记6-Neural Networks Part 3: Learning and Evaluation | Jiaao & 7</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/08/18/my-first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/12/03/CS231n笔记6-Neural-Networks-Part-3-Learning-and-Evaluation/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaao">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My first blog
+          <h1 class="post-title" itemprop="name headline">CS231n笔记6-Neural Networks Part 3: Learning and Evaluation
               
             
           </h1>
@@ -322,7 +322,7 @@
                 
               
 
-              <time title="Created: 2018-08-18 11:05:01" itemprop="dateCreated datePublished" datetime="2018-08-18T11:05:01+02:00">2018-08-18</time>
+              <time title="Created: 2018-12-03 05:06:03" itemprop="dateCreated datePublished" datetime="2018-12-03T05:06:03+01:00">2018-12-03</time>
             
 
             
@@ -339,7 +339,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
+                <time title="Modified: 2018-12-18 20:12:59" itemprop="dateModified" datetime="2018-12-18T20:12:59+01:00">2018-12-18</time>
               
             
           </span>
@@ -372,8 +372,36 @@
       
 
       
-        <h1 id="The-words-before-my-blog"><a href="#The-words-before-my-blog" class="headerlink" title="The words before my blog."></a>The words before my blog.</h1><p>小七真可爱！</p>
-<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>In this blog, I will share my life and some knowledge.  </p>
+        <ul>
+<li>Centered-formula 是二阶近似的导数，可以用$f(x+h)$与$f(x-h)$的傅里叶级数证明</li>
+<li>用双精度来做gradient checking</li>
+<li>还是关于双精度的问题：有的时候数据太小了，很容易产生数值方面的问题，$1e^{-10}$以下就很不安全了。所以在计算Loss Function的时候可以考虑不处以Batch Size。如果能够放缩的话，$1e^{0}$是浮点数比较密集的地方</li>
+<li>反复强调Gradient Check的重要性与 各种方法，以至于只用少数的样本在非常初级的时候去检验，都不一定可靠。</li>
+<li>Sanity Check：<ol>
+<li>观察最初的Loss Function是不是符合常理，比如10个类别随机给标签，那么每个类别是0.1，cross-entropy应该为$-log(0.1) = 2.302$</li>
+<li>更强的正则化会令损失函数增加</li>
+<li>过拟合小的子数据集</li>
+</ol>
+</li>
+<li>Batch Size小会令Loss Function的降低过程噪音更大</li>
+<li>momentum 的优化方法是在固定的learning rate的基础上，把learning rate作用到一个量上，然后每次累积这个量，也就是说，每一个batch的update不仅受到当前batch的影响，还受到上一个batch的影响：<blockquote>
+<p>$v = \mu \times v - learning rate \times grad$<br>$x = x + v$</p>
+</blockquote>
+</li>
+<li>每一次考虑梯度下降的时候就考虑3维空间：参数是2维，Loss Function是第三维，每次更新就是在2维地图选择一个“方向”前进。</li>
+<li>关于物理的动能、动量的联想也是很有帮助的。</li>
+<li>Learning Rate 有点像速度，如果一开始在距离最优很远的地方，就要有很大的速度去到达最优，但是如果已经距离最优很近了，太大的速度就会在最优周围跳来跳去</li>
+<li>二阶矩是用Hessian Matrix代表曲率，曲率越大的地方，就用更小的Learning Rate。问题是，Hessian Matrix的计算量太大，所以就用Quasi-Newton，而不用真正的Newton Method</li>
+<li>我们也可以对不同的参数设置不同的Learning Rate</li>
+<li>这是Adam方法和Momentum方法很大的不同</li>
+<li>Adam主要就是同时考虑均值和方差，分子是均值的moving average，分母是方差的moving average，均值的方向是靠谱方向，方差大的方向是不靠谱的方向。</li>
+<li>当梯度初始化为0时候，用了normalization</li>
+<li>用一个worker程序来取样hyper-parameters，并将每一个epoch的结果、参数记录在一个checkpoint文件中。用一个master程序来启动、关闭worker，并查看不同参数下的表现。</li>
+<li>只用一个validation fold来做交叉验证</li>
+<li>用<code>10**uniform(-6,1)</code>来做learning rate和regularization strength</li>
+<li>一开始用小epoch，from coarse to fine。</li>
+<li>Model Ensembling可以得到更好的效果，不过要考虑成本。</li>
+</ul>
 
       
     </div>
@@ -401,14 +429,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/Sunny7464/2018/11/28/CS231n笔记5-Neural-Networks-Part-2-Setting-up-the-Data-and-the-Loss/" rel="next" title="CS231n笔记5-Neural Networks Part 2: Setting up the Data and the Loss">
+                <i class="fa fa-chevron-left"></i> CS231n笔记5-Neural Networks Part 2: Setting up the Data and the Loss
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Sunny7464/2018/08/19/Sorting-Algorithms/" rel="prev" title="Sorting Algorithms">
-                Sorting Algorithms <i class="fa fa-chevron-right"></i>
+              <a href="/Sunny7464/2018/12/03/雷达项目回顾1/" rel="prev" title="雷达项目回顾1">
+                雷达项目回顾1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -454,17 +486,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -509,22 +532,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-words-before-my-blog"><span class="nav-number">1.</span> <span class="nav-text">The words before my blog.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Preface"><span class="nav-number">2.</span> <span class="nav-text">Preface</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
