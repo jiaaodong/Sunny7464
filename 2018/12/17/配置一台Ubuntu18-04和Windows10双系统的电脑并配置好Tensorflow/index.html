@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="1. What is data structureFrom the definition in Wikipedia Data structure.   In computer science, a data structure is a data organization, management and storage format that enables efficient access an">
+  <meta name="description" content="1. 安装双系统1.1 制作usb启动盘：下载Ubuntu18.04的iso并用工具（比如rufus）burn到USB-key中，这时候usb-key就成了启动盘。 1.2 Windows分区： 先把Windows的快速启动关掉。 然后在硬盘分区中把Windows系统盘分出一部分来作为unallocated space。 最后按住shift键重启，选择trouble shooting-&amp;gt;UE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Learning Algorithms] - Data Structure Intro">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/09/17/Learning-Algorithms-Data-Structure-Intro/index.html">
+<meta property="og:title" content="配置一台Ubuntu18.04和Windows10双系统的电脑并配置好Tensorflow">
+<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/12/17/配置一台Ubuntu18-04和Windows10双系统的电脑并配置好Tensorflow/index.html">
 <meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="1. What is data structureFrom the definition in Wikipedia Data structure.   In computer science, a data structure is a data organization, management and storage format that enables efficient access an">
+<meta property="og:description" content="1. 安装双系统1.1 制作usb启动盘：下载Ubuntu18.04的iso并用工具（比如rufus）burn到USB-key中，这时候usb-key就成了启动盘。 1.2 Windows分区： 先把Windows的快速启动关掉。 然后在硬盘分区中把Windows系统盘分出一部分来作为unallocated space。 最后按住shift键重启，选择trouble shooting-&amp;gt;UE">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.580Z">
+<meta property="og:updated_time" content="2018-12-18T19:01:44.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Learning Algorithms] - Data Structure Intro">
-<meta name="twitter:description" content="1. What is data structureFrom the definition in Wikipedia Data structure.   In computer science, a data structure is a data organization, management and storage format that enables efficient access an">
+<meta name="twitter:title" content="配置一台Ubuntu18.04和Windows10双系统的电脑并配置好Tensorflow">
+<meta name="twitter:description" content="1. 安装双系统1.1 制作usb启动盘：下载Ubuntu18.04的iso并用工具（比如rufus）burn到USB-key中，这时候usb-key就成了启动盘。 1.2 Windows分区： 先把Windows的快速启动关掉。 然后在硬盘分区中把Windows系统盘分出一部分来作为unallocated space。 最后按住shift键重启，选择trouble shooting-&amp;gt;UE">
 
 
 
 
 
 
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/09/17/Learning-Algorithms-Data-Structure-Intro/">
+  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/12/17/配置一台Ubuntu18-04和Windows10双系统的电脑并配置好Tensorflow/">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>[Learning Algorithms] - Data Structure Intro | Jiaao & 7</title>
+  <title>配置一台Ubuntu18.04和Windows10双系统的电脑并配置好Tensorflow | Jiaao & 7</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/09/17/Learning-Algorithms-Data-Structure-Intro/">
+    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/12/17/配置一台Ubuntu18-04和Windows10双系统的电脑并配置好Tensorflow/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jiaao">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">[Learning Algorithms] - Data Structure Intro
+          <h1 class="post-title" itemprop="name headline">配置一台Ubuntu18.04和Windows10双系统的电脑并配置好Tensorflow
               
             
           </h1>
@@ -322,7 +322,7 @@
                 
               
 
-              <time title="Created: 2018-09-17 23:16:48" itemprop="dateCreated datePublished" datetime="2018-09-17T23:16:48+02:00">2018-09-17</time>
+              <time title="Created: 2018-12-17 02:12:41" itemprop="dateCreated datePublished" datetime="2018-12-17T02:12:41+01:00">2018-12-17</time>
             
 
             
@@ -339,7 +339,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
+                <time title="Modified: 2018-12-18 20:01:44" itemprop="dateModified" datetime="2018-12-18T20:01:44+01:00">2018-12-18</time>
               
             
           </span>
@@ -372,38 +372,37 @@
       
 
       
-        <h2 id="1-What-is-data-structure"><a href="#1-What-is-data-structure" class="headerlink" title="1. What is data structure"></a>1. What is data structure</h2><p>From the definition in <a href="https://en.wikipedia.org/wiki/Data_structure" target="_blank" rel="noopener">Wikipedia Data structure</a>. </p>
-<blockquote>
-<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science" target="_blank" rel="noopener">computer science</a>, a <strong>data structure</strong> is a data organization, management and storage format that enables efficient access and modification.</p>
-</blockquote>
-<p>This is a two-fold definition. On one hand, it defines what is data structure:</p>
-<blockquote>
-<p>Data structure is a <strong>data format</strong>.</p>
-</blockquote>
-<p>On the other hand, it explains why do we need different data structures:</p>
-<blockquote>
-<p>Data structure enables efficient access and modification of the data.</p>
-</blockquote>
-<p>Basically, if we only consider data structure itself, it is all about how to store the data.</p>
-<h2 id="2-Why-do-we-need-data-structure"><a href="#2-Why-do-we-need-data-structure" class="headerlink" title="2. Why do we need data structure"></a>2. Why do we need data structure</h2><p>Now that we have known what data structure is, we need to know why do we need it. We seem to be very comfortable when we are using MATLAB array and Numpy array. They are easy to use and friendly to math representation. Why do we still need the hassle of implementing a Red-Black tree or a graph?</p>
-<p>When we are programming, we always need to load, process and store some data (For MATLAB and Python Numpy users, arrays are usually the case). But simply storing these data is far from enough. We also need to access them when needed. How to access them? The answer of this question seems trivial:</p>
-<blockquote>
-<p>We can access them by index in MATLAB array or by a key in Python’s dictionary. </p>
-</blockquote>
-<p>However, this is an imcomplete answer. Programming language constructs a bridge between data and programmer, through the language’s environment such as an interpreter, a compiler, ect. But how can language access data?  The data is stored in the memory with a certain address. Different data types occupy different space (8 bits for uint8, 16 or 32 bits for float, etc). The address is not very easy for a human being to understand intuitively. They look like a combination of numbers and characters. But we need to know the first, second, third number in our vector simply by the index. Otherwise computer doesn’t know what is the first number in our vector or what is the correspondance between a key and the value (Also known as satellitte data) even though we have already stored them in the memory. </p>
-<p>Moreover, If you have used MATLAB, you might also observe that it allows you to grow the array when running the program. But it will warn you that this is not very efficient. This is called dynamic allocation of the memory. In C++ this means allocate memory for the data after compilation. The dynamic data allocation also need data structure.</p>
-<p>On top of the storage, we also need to retrieve the data. For example, for a list of numbers, we want the last element or the largest one. It is easy for us to search all of them. But if we check the element one by one and compare them with all the other elements, it might not be a good choice. To efficiently achieve the data retrival, data structure helps a lot. I think that’s why in the book <em>Introduction of algorithms</em> there are more than one chapter to talk about data structure.</p>
-<p>Moreover, many real-life cases need data structure to facilitate programming. For example, if we want to undo some editted content in an editor, the undo button should be implemented by a stack, which is based on the Last-in-first-out (LIFO) principle.</p>
-<p>In a word, data is data, but a good way to manage the data can help to save time and space. This is not only achieved by algorithms, but also by smart data structures.</p>
-<h2 id="3-What-is-the-relationship-between-data-structure-and-programming-language"><a href="#3-What-is-the-relationship-between-data-structure-and-programming-language" class="headerlink" title="3. What is the relationship between data structure and programming language?"></a>3. What is the relationship between data structure and programming language?</h2><p><strong>Please don’t confuse the Data Structure Theories with Programming languages!</strong> </p>
-<p>Data Structure does not rely on certain language, but they need to be implemented by languages. On the other way round,  languages are using certain data structures to form new data structures of their own.  </p>
-<p>When I started learning data structure, I am already very familiar with MATLAB, C++ and Python. The data in those programming languages are organized in various ways, such as array and cell in MATLAB, list, tuple, dictionary in Python and vector in C++ standard libraries. So I am always wondering the relationships between what we learn as data structure and the data structures in those languages.</p>
-<p>During this process, I am also doing some exercises on <a href="https://leetcode.com/" target="_blank" rel="noopener">Leetcode</a>, where there are many problems related to data structure. The same problem can be solved using different languages, which helps me decouple data structure theories with specific language implementations.</p>
-<p>For example, when we consider the problems using Hash Table, we are usually deal with some searching problems, such as the problem <a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="noopener">#1 Two sum</a>. We need to search across previously saved results according to the newly encountered ones. During this procedure, we need correspondances, thus Hash Table is a good data structure to facilitate the procedure. It can retrieve the satellite data by the key with low time complexity. In Python, dictionary is implemented by Hash Table. In Java and C++, Hash Map does the same job.   </p>
-<p>Unlike Hash Table has its counterpart in various languages. A tree should be constructed by a Class in most Object-oriented languages. A tree is organized by nodes. Each node stores the pointer to the parent node, the pointers to the children nodes and the value of satellite data. In Leetcode tree node, they are called <code>root.left</code>, <code>root.right</code> and <code>root.val</code>. (Leetcode tree node doesn’t have parent node pointer.) Until now you may ask, is it only be able to implement a tree by pointers? What if a language does not have pointer implementation such as Python? This is what I call “decouples the language and data structure”. In leetcode, the incoming tree is just a list. What is the “Pointer”? -The indices of the element. The first element in the list is the root of the tree. The second and the third are the children of the root and so on and so forth. We can use the principle and algorithms of a binary tree to facilitate sorting or other tasks. The list is just a notation.</p>
-<h2 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a>4. Conclusion</h2><p>Data Structure is a theory of how to organize the data. The theory doesn’t rely on particular programming languages. We can find Data Structure playing roles not only in any of the programming languages, but also in other fields, such as the look-up-table in the compiler. We can facilitate some computations not only by good algorithms such as Divide-and-conquer, but also by smart Data Structures.</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
-<li><a href="https://mitpress.mit.edu/books/introduction-algorithms-third-edition" target="_blank" rel="noopener">Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2009). <em>Introduction to algorithms</em>. MIT press.</a></li>
+        <h2 id="1-安装双系统"><a href="#1-安装双系统" class="headerlink" title="1. 安装双系统"></a>1. 安装双系统</h2><h3 id="1-1-制作usb启动盘："><a href="#1-1-制作usb启动盘：" class="headerlink" title="1.1 制作usb启动盘："></a>1.1 制作usb启动盘：</h3><p>下载Ubuntu18.04的iso并用工具（比如rufus）burn到USB-key中，这时候usb-key就成了启动盘。</p>
+<h3 id="1-2-Windows分区："><a href="#1-2-Windows分区：" class="headerlink" title="1.2 Windows分区："></a>1.2 Windows分区：</h3><ul>
+<li>先把Windows的快速启动关掉。</li>
+<li>然后在硬盘分区中把Windows系统盘分出一部分来作为unallocated space。</li>
+<li>最后按住shift键重启，选择trouble shooting-&gt;UEFI那一项-&gt;重启。<h3 id="1-3-Ubuntu安装"><a href="#1-3-Ubuntu安装" class="headerlink" title="1.3 Ubuntu安装"></a>1.3 Ubuntu安装</h3></li>
+<li>重启会进入BIOS，微星的是click BIOS 5，是一个可以用鼠标操作的GUI，在里面找到boot的顺序（可以拖动的小图标），主板就是按照这个顺序来启动系统的，把usb-key放到hard-disk之前。</li>
+<li>然后关闭（点右上角的x，会有提示出来你做了哪些修改，点yes）</li>
+<li>然后就进入了usb-key的启动状态，选install ubuntu。</li>
+<li>全部都点continue，直到选择哪种方式安装，选择something else，然后手动分三个区，两个类型ext4分别挂在/和/home，第三个类型为swap，建议为RAM的两倍。</li>
+<li>然后continue，等着安装就行了。</li>
+<li>安装完了就会问你是否重启，点重启</li>
+<li>重启后就还是会进入usb-key，我暂时还没找到别的更快的办法，我的办法就是进入“试用ubuntu”，然后关机，等电脑关机后，拔掉usb-key，再开机，然后就会直接进入Windows。</li>
+<li>按照之前的方法重启进入BIOS（按住shift后重启，找troubleshooting，点advanced，找UEFI重启）</li>
+<li>在BIOS里找Advanced（右上角），然后找settings（左上角），找boot，找boot的优先级中设置硬盘的（下面的几条中的一条），然后把硬盘的boot优先级设置为先Ubuntu再windows boot manager。</li>
+<li>设置完了推出BIOS（右上角x，出现的对话框点yes）</li>
+<li>这时候就会进入GRUB了——一个决定你用哪个系统来boot的工具。<h3 id="1-4-Pitfalls"><a href="#1-4-Pitfalls" class="headerlink" title="1.4 Pitfalls"></a>1.4 Pitfalls</h3></li>
+</ul>
+<ol>
+<li>卸载ubuntu时候不能在windows中直接把分区释放，这样会导致再开机时候grub报错，解决办法是用usb启动盘选择try ubuntu，进去后作为一个living的操作系统，用boot repair把grub修复。</li>
+<li>将ubuntu设为硬盘的优先启动时候，如果用usb-key启动盘，会报No living system错误，如果出现这样的错误可以从Windows进BIOS进USB启动盘。</li>
+<li>ubuntu重新分区的问题：必须用USB启动盘打开gparted，并且分区只能按照内存的顺序来安排。</li>
+<li>不要瞎设置BIOS中的其他选项，我把graphics configuration的第一项设置成了IGD，直接导致我显示屏接到显卡上就啥信号都收不到了，接到主板上重新进入BIOS才弄了回来….<h2 id="2-安装Anaconda"><a href="#2-安装Anaconda" class="headerlink" title="2. 安装Anaconda"></a>2. 安装Anaconda</h2>官网下载安装Anaconda，同意conda修改bashrc（如果不希望系统默认用conda启动python可以拒绝，在某些情况下不同的包管理器可能会有冲突，比如Anaconda和ROS）<br>Anaconda安装完毕后安装Conda建议安装的VSCode<br>在Anaconda中给自己的项目创建一个新的环境，什么环境都行，为了以后不用base环境，比如叫做my_envs<br>我一开始是用<code>conda create -n my_env_name</code>这种方法来创建，后来发现创建的文件夹中什么都没有（没有python解释器），才意识到Anaconda不仅仅是python的包管理器，它创建的environments如果不指定用哪种语言的话，就是个空的envs。所以用<code>conda create -n my_env_name python=3.7</code>这种形式。</li>
+</ol>
+<h2 id="3-配置VSCode"><a href="#3-配置VSCode" class="headerlink" title="3. 配置VSCode"></a>3. 配置VSCode</h2><p>如果找不到想要的环境，可以在settings里面找到venvPath选项，点右上角的<code>{}</code>可以直接修改json，总之就是把你想加的解释器加到这里就行。</p>
+<h2 id="4-安装驱动、CUDA-amp-CUDnn"><a href="#4-安装驱动、CUDA-amp-CUDnn" class="headerlink" title="4. 安装驱动、CUDA &amp; CUDnn"></a>4. 安装驱动、CUDA &amp; CUDnn</h2><h3 id="4-1-驱动"><a href="#4-1-驱动" class="headerlink" title="4.1 驱动"></a>4.1 驱动</h3><p>不要考虑单独装驱动了，太烦了，如果用software &amp; update里面自动找到的驱动，是nvidia-390，如果用runfile要费好大事。最好的办法是：直接用CUDA Toolkit 10装。但是在这之前，一定要按照<a href="https://wiki.ubuntu.com/UEFI/SecureBoot/DKMS" target="_blank" rel="noopener">这里写的把secure boot给关掉！！！！！</a>否则，安装nvidia-390后打开nvidia-settings没显卡，打开system settings-&gt; details显示的是主板的显卡，即使用CUDA Toolkit10安装包装上的是410，但是点nvidia-settings的时候，打都打不开。<br>所以，一定要禁用secure boot。</p>
+<h3 id="4-2-CUDA"><a href="#4-2-CUDA" class="headerlink" title="4.2 CUDA"></a>4.2 CUDA</h3><p>安装CUDA 10！</p>
+<h3 id="4-3-cuDNN"><a href="#4-3-cuDNN" class="headerlink" title="4.3 cuDNN"></a>4.3 cuDNN</h3><p>cudnn给18.04有三个，三个都要安装上才行。verify installation的方法因为权限的问题和官网要求的结果不同，但好像也不太影响使用。</p>
+<h2 id="5-安装tensorflow"><a href="#5-安装tensorflow" class="headerlink" title="5. 安装tensorflow"></a>5. 安装tensorflow</h2><ol>
+<li>用pip3安装是没办法装到conda虚拟环境里的！！！！！</li>
+<li>用python3.7的pip是找不到tensorflow的，要用python 3.6 ！！！！！</li>
+<li>在CUDA10和对应的cuDNN下，不能装tensorflow-gpu，必须要用tf-nightly-gpu！！！！</li>
 </ol>
 
       
@@ -432,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Sunny7464/2018/08/19/Sorting-Algorithms/" rel="next" title="Sorting Algorithms">
-                <i class="fa fa-chevron-left"></i> Sorting Algorithms
+              <a href="/Sunny7464/2018/09/17/Learning-Algorithms-Data-Structure-Intro/" rel="next" title="[Learning Algorithms] - Data Structure Intro">
+                <i class="fa fa-chevron-left"></i> [Learning Algorithms] - Data Structure Intro
               </a>
             
           </div>
@@ -441,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Sunny7464/2018/12/17/配置一台Ubuntu18-04和Windows10双系统的电脑并配置好Tensorflow/" rel="prev" title="配置一台Ubuntu18.04和Windows10双系统的电脑并配置好Tensorflow">
-                配置一台Ubuntu18.04和Windows10双系统的电脑并配置好Tensorflow <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-data-structure"><span class="nav-number">1.</span> <span class="nav-text">1. What is data structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Why-do-we-need-data-structure"><span class="nav-number">2.</span> <span class="nav-text">2. Why do we need data structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-What-is-the-relationship-between-data-structure-and-programming-language"><span class="nav-number">3.</span> <span class="nav-text">3. What is the relationship between data structure and programming language?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Conclusion"><span class="nav-number">4.</span> <span class="nav-text">4. Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装双系统"><span class="nav-number">1.</span> <span class="nav-text">1. 安装双系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-制作usb启动盘："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 制作usb启动盘：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Windows分区："><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Windows分区：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Ubuntu安装"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 Ubuntu安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Pitfalls"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 Pitfalls</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装Anaconda"><span class="nav-number">2.</span> <span class="nav-text">2. 安装Anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-配置VSCode"><span class="nav-number">3.</span> <span class="nav-text">3. 配置VSCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装驱动、CUDA-amp-CUDnn"><span class="nav-number">4.</span> <span class="nav-text">4. 安装驱动、CUDA &amp; CUDnn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-驱动"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-CUDA"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 CUDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-cuDNN"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 cuDNN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装tensorflow"><span class="nav-number">5.</span> <span class="nav-text">5. 安装tensorflow</span></a></li></ol></div>
             
 
           </div>
