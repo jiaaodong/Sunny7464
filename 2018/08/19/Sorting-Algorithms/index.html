@@ -1,380 +1,139 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="en">
+<html lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/Sunny7464/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/Sunny7464/css/main.css?v=6.4.0" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/Sunny7464/images/apple-touch-icon-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/Sunny7464/images/favicon-32x32-next.png?v=6.4.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/Sunny7464/images/favicon-16x16-next.png?v=6.4.0">
-
-
-  <link rel="mask-icon" href="/Sunny7464/images/logo.svg?v=6.4.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/Sunny7464/',
-    scheme: 'Muse',
-    version: '6.4.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="These days I am reading the book &amp;lt;Introduction to algorithms&amp;gt;. This week I have learnt several sorting algorithms in this book and implemented some of them. The mentioned algorithms are merge so">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Sorting Algorithms">
-<meta property="og:url" content="https://jiaaodong.github.io/Sunny7464/2018/08/19/Sorting-Algorithms/index.html">
-<meta property="og:site_name" content="Jiaao &amp; 7">
-<meta property="og:description" content="These days I am reading the book &amp;lt;Introduction to algorithms&amp;gt;. This week I have learnt several sorting algorithms in this book and implemented some of them. The mentioned algorithms are merge so">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T07:42:40.581Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sorting Algorithms">
-<meta name="twitter:description" content="These days I am reading the book &amp;lt;Introduction to algorithms&amp;gt;. This week I have learnt several sorting algorithms in this book and implemented some of them. The mentioned algorithms are merge so">
-
-
-
-
-
-
-  <link rel="canonical" href="https://jiaaodong.github.io/Sunny7464/2018/08/19/Sorting-Algorithms/">
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>Sorting Algorithms | Jiaao & 7</title>
-  
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/Sunny7464/img/favicon.ico">
+
+    <title>
+        
+        Sorting Algorithms - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Sunny7464/css/aircloud.css">
+    <link rel="stylesheet" href="/Sunny7464/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+<body>
 
-  
-  
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它 </i>
+</div>
+
+<div class="index-container">
     
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/Sunny7464/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jiaao & 7</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/Sunny7464/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>Jiaao DOng</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/Sunny7464/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
     </div>
     
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Merge-Sort"><span class="toc-text">Merge Sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Heap-Sort"><span class="toc-text">Heap Sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Sort"><span class="toc-text">Quick Sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Counting-Sort-Radix-Sort-and-Bucket-Sort"><span class="toc-text">Counting Sort, Radix Sort and Bucket Sort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Counting-Sort"><span class="toc-text">Counting Sort</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/Sunny7464/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/Sunny7464/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jiaaodong.github.io/Sunny7464/Sunny7464/2018/08/19/Sorting-Algorithms/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiaao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/Sunny7464/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jiaao & 7">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Sorting Algorithms
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-19 13:41:47" itemprop="dateCreated datePublished" datetime="2018-08-19T13:41:47+02:00">2018-08-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-12-18 08:42:40" itemprop="dateModified" datetime="2018-12-18T08:42:40+01:00">2018-12-18</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
 
         </div>
-      </header>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它 </i>
+        </div>
+    </div>
     
+    <div class="index-middle">
+        <!-- Main Content -->
+        
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-      
+<div class="post-container">
+    <div class="post-title">
+        Sorting Algorithms
+    </div>
 
-      
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-19 13:41:47</span></span>
+        
+        
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <p>These days I am reading the book &lt;<strong>Introduction to algorithms</strong>&gt;. This week I have learnt several sorting algorithms in this book and implemented some of them. The mentioned algorithms are merge sort, heap sort, quick sort, counting sort, radix sort and bucket sort. During learning, I also learnt some methods to analyze and design an algorithm, among which the most important one is divide-and-conquer.</p>
 <h2 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h2><p>Merge sort is an algorithm that divide the whole sort task into two subtasks. Then divide each subtask also into two subtasks. Until the list contains only one element, it will be merged into larger lists with ordered elements. The design principle is <strong>divide-and-conquer</strong>. </p>
-<p>The python code of merge sort is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># Merge two sorted series</span><br><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line">def Merge(A, p, q, r):</span><br><span class="line">    n1 = q - p + 1</span><br><span class="line">    n2 = r - q</span><br><span class="line">    L = np.zeros(n1+1)</span><br><span class="line">    R = np.zeros(n2+1)</span><br><span class="line">    for i in np.arange(0, n1):</span><br><span class="line">        L[i] = A[p + i]</span><br><span class="line">    for j in np.range(0, n2):</span><br><span class="line">        R[j] = A[q + j + 1]</span><br><span class="line">    L[n1] = math.inf</span><br><span class="line">    R[n2] = math.inf</span><br><span class="line">    i = 0</span><br><span class="line">    j = 0</span><br><span class="line">    for k in np.arange(p, r+1):</span><br><span class="line">        if L[i] &lt; R[j]:</span><br><span class="line">            A[k] = L[i]</span><br><span class="line">            i = i + 1</span><br><span class="line">        else:</span><br><span class="line">            A[k] = R[j]</span><br><span class="line">            j = j + 1</span><br><span class="line"></span><br><span class="line">def Merge_Sort(A, p, r):</span><br><span class="line">    if p &lt; r:</span><br><span class="line">        q = int(np.floor((p + r) / 2))</span><br><span class="line">        Merge_Sort(A, p, q)</span><br><span class="line">        Merge_Sort(A, q+1, r)</span><br><span class="line">        Merge(A, p, q, r)</span><br><span class="line"></span><br><span class="line">A = [4., 1., 7., 2., 3., 5., 9, 4]</span><br><span class="line">print(&quot;The original array A: &quot;, A)</span><br><span class="line"># Merge(A, 0, 0, 1)</span><br><span class="line"># B = Merge(A, 0, 2, 5)</span><br><span class="line">Merge_Sort(A, 0, len(A)-1)</span><br><span class="line">print(&quot;The array A after merge-sort: &quot;, A)</span><br><span class="line"></span><br><span class="line">## Pay special attention to the integer value for the np.array(shape)</span><br></pre></td></tr></table></figure></p>
+<p>The python code of merge sort is:<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"># Merge two sorted series</span><br><span class="line">import numpy as <span class="built_in">np</span></span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line">def Merge(A, p, q, r):</span><br><span class="line">    n1 = q - p + <span class="number">1</span></span><br><span class="line">    n2 = r - q</span><br><span class="line">    L = <span class="built_in">np</span>.zeros(n1+<span class="number">1</span>)</span><br><span class="line">    R = <span class="built_in">np</span>.zeros(n2+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">np</span>.arange(<span class="number">0</span>, n1):</span><br><span class="line">        L[i] = A[p + i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">np</span>.<span class="built_in">range</span>(<span class="number">0</span>, n2):</span><br><span class="line">        R[j] = A[q + j + <span class="number">1</span>]</span><br><span class="line">    L[n1] = math.<span class="literal">inf</span></span><br><span class="line">    R[n2] = math.<span class="literal">inf</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">np</span>.arange(p, r+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> L[i] &lt; R[j]:</span><br><span class="line">            A[k] = L[i]</span><br><span class="line">            i = i + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            A[k] = R[j]</span><br><span class="line">            j = j + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">def Merge_Sort(A, p, r):</span><br><span class="line">    <span class="keyword">if</span> p &lt; r:</span><br><span class="line">        q = int(<span class="built_in">np</span>.<span class="built_in">floor</span>((p + r) / <span class="number">2</span>))</span><br><span class="line">        Merge_Sort(A, p, q)</span><br><span class="line">        Merge_Sort(A, q+<span class="number">1</span>, r)</span><br><span class="line">        Merge(A, p, q, r)</span><br><span class="line"></span><br><span class="line">A = [<span class="number">4</span>., <span class="number">1</span>., <span class="number">7</span>., <span class="number">2</span>., <span class="number">3</span>., <span class="number">5</span>., <span class="number">9</span>, <span class="number">4</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The original array A: "</span>, A)</span><br><span class="line"># Merge(A, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"># B = Merge(A, <span class="number">0</span>, <span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line">Merge_Sort(A, <span class="number">0</span>, len(A)-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"The array A after merge-sort: "</span>, A)</span><br><span class="line"></span><br><span class="line">## Pay special attention to the <span class="built_in">integer</span> value <span class="keyword">for</span> the <span class="built_in">np</span>.<span class="built_in">array</span>(shape)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h2><p>Let’s start with insertion sort. Insertion sort is making many repeated comparisons. Although it is better than randomly choosing a pair of elements and comparing all possible pairs($n!$ times comparison). It still does many unnecessary comparings. For example, if $A$ is already larger than $B$ and $B$ is already larger than $C$, it is useless to compare $A$ and $C$. From the proof in the book, we could see that the most efficient way to do the comparing should take at least $O(nlog(n))$ time. Heap sort has achieved this bound. </p>
 <ul>
 <li>Heap sort uses a data structure called <strong>Heap</strong> to facilitate the sorting. </li>
@@ -389,382 +148,105 @@
 <li>The index conventions are different over different programming languages. If the first index of a list is $0$, the left node is $ 2i+1 $ and the right node is $ 2i + 2 $ . </li>
 </ul>
 <p>The code of heap sort is shown bellow:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class sort:</span><br><span class="line">    &quot;&quot;&quot; This is a class of sort algorithms&quot;&quot;&quot;</span><br><span class="line">    def __init__(self, array):</span><br><span class="line">       self.A = array</span><br><span class="line">       self.HeapSize = len(B)</span><br><span class="line">    </span><br><span class="line">    def max_heapify(self, i):</span><br><span class="line">        largest = i </span><br><span class="line">        l = 2 * i + 1</span><br><span class="line">        r = 2 * i + 2</span><br><span class="line">        if l &lt; self.HeapSize and self.A[l] &gt; self.A[i]:</span><br><span class="line">                largest = l</span><br><span class="line">        if r &lt; self.HeapSize and self.A[r] &gt; self.A[largest]:</span><br><span class="line">                largest = r</span><br><span class="line">        if largest != i:</span><br><span class="line">            self.A[i], self.A[largest] = self.A[largest], self.A[i]</span><br><span class="line">            self.max_heapify(largest)</span><br><span class="line">            </span><br><span class="line">    def build_max_heap(self):</span><br><span class="line">        self.HeapSize = len(self.A)</span><br><span class="line">        for i in range(len(self.A) // 2, 0, -1):</span><br><span class="line">            self.max_heapify(i)</span><br><span class="line">            </span><br><span class="line">    def heap_sort(self):</span><br><span class="line">        self.build_max_heap()</span><br><span class="line">        for i in range(len(self.A)-1, 0, -1):</span><br><span class="line">            self.A[0], self.A[i] = self.A[i], self.A[0]</span><br><span class="line">            self.HeapSize = self.HeapSize - 1</span><br><span class="line">            self.max_heapify(0)</span><br><span class="line">            </span><br><span class="line">    </span><br><span class="line">B = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]</span><br><span class="line">HeapSort = sort(B)</span><br><span class="line">HeapSort.heap_sort()</span><br><span class="line">HeapSort.A</span><br></pre></td></tr></table></figure>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sort</span>:</span></span><br><span class="line">    <span class="string">""</span><span class="string">" This is a class of sort algorithms"</span><span class="string">""</span></span><br><span class="line">    def __init__(<span class="built_in">self</span>, array):</span><br><span class="line">       <span class="built_in">self</span>.A = array</span><br><span class="line">       <span class="built_in">self</span>.HeapSize = len(B)</span><br><span class="line">    </span><br><span class="line">    def max_heapify(<span class="built_in">self</span>, i):</span><br><span class="line">        largest = i </span><br><span class="line">        l = <span class="number">2</span> * i + <span class="number">1</span></span><br><span class="line">        r = <span class="number">2</span> * i + <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> l &lt; <span class="built_in">self</span>.HeapSize <span class="literal">and</span> <span class="built_in">self</span>.A[l] &gt; <span class="built_in">self</span>.A[i]:</span><br><span class="line">                largest = l</span><br><span class="line">        <span class="keyword">if</span> r &lt; <span class="built_in">self</span>.HeapSize <span class="literal">and</span> <span class="built_in">self</span>.A[r] &gt; <span class="built_in">self</span>.A[largest]:</span><br><span class="line">                largest = r</span><br><span class="line">        <span class="keyword">if</span> largest != i:</span><br><span class="line">            <span class="built_in">self</span>.A[i], <span class="built_in">self</span>.A[largest] = <span class="built_in">self</span>.A[largest], <span class="built_in">self</span>.A[i]</span><br><span class="line">            <span class="built_in">self</span>.max_heapify(largest)</span><br><span class="line">            </span><br><span class="line">    def build_max_heap(<span class="built_in">self</span>):</span><br><span class="line">        <span class="built_in">self</span>.HeapSize = len(<span class="built_in">self</span>.A)</span><br><span class="line">        <span class="keyword">for</span> i in range(len(<span class="built_in">self</span>.A) // <span class="number">2</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="built_in">self</span>.max_heapify(i)</span><br><span class="line">            </span><br><span class="line">    def heap_sort(<span class="built_in">self</span>):</span><br><span class="line">        <span class="built_in">self</span>.build_max_heap()</span><br><span class="line">        <span class="keyword">for</span> i in range(len(<span class="built_in">self</span>.A)-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="built_in">self</span>.A[<span class="number">0</span>], <span class="built_in">self</span>.A[i] = <span class="built_in">self</span>.A[i], <span class="built_in">self</span>.A[<span class="number">0</span>]</span><br><span class="line">            <span class="built_in">self</span>.HeapSize = <span class="built_in">self</span>.HeapSize - <span class="number">1</span></span><br><span class="line">            <span class="built_in">self</span>.max_heapify(<span class="number">0</span>)</span><br><span class="line">            </span><br><span class="line">    </span><br><span class="line">B = [<span class="number">16</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">14</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">1</span>]</span><br><span class="line">HeapSort = sort(B)</span><br><span class="line">HeapSort.heap_sort()</span><br><span class="line">HeapSort.A</span><br></pre></td></tr></table></figure>
 <h2 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h2><p>Quick sort is achieved by a method called <strong>partitioning</strong>. This algorithm is in worst case $O(n^2)$ but on average $O(nlog(n))$. It uses the principle of randomized algorithms, which induce some degree of random into the algorithm.  </p>
-<p>The python code:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">class quicksort():</span><br><span class="line">    def __init__(self, array):</span><br><span class="line">        self.A = array</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def partition(self, p, r):</span><br><span class="line">        x = self.A[r]</span><br><span class="line">        i = p - 1</span><br><span class="line">        for j in np.arange(p, r):</span><br><span class="line">            if self.A[j] &lt;= x:</span><br><span class="line">                i += 1</span><br><span class="line">                self.A[i], self.A[j] = self.A[j], self.A[i]</span><br><span class="line">        self.A[i + 1], self.A[r] = self.A[r], self.A[i + 1]</span><br><span class="line">        return i + 1</span><br><span class="line"></span><br><span class="line">    def randomized_partition(self, p, r):</span><br><span class="line">        i = np.random.randint(p, r + 1) # [p, r] range</span><br><span class="line">        self.A[i], self.A[r] = self.A[r], self.A[i]</span><br><span class="line">        return self.partition(p, r)</span><br><span class="line"></span><br><span class="line">    def randomized_quicksort(self, p, r):</span><br><span class="line">        if p &lt; r:</span><br><span class="line">            q = self.randomized_partition(p, r)</span><br><span class="line">            self.randomized_quicksort(p, q - 1)</span><br><span class="line">            self.randomized_quicksort(q+1, r)</span><br><span class="line">#__________________________________________________________</span><br><span class="line">test_array = [13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]</span><br><span class="line">print(&apos;Input array:&apos;, test_array)</span><br><span class="line">sort_task = quicksort(test_array)</span><br><span class="line">sort_task.randomized_quicksort(0, len(test_array) - 1)</span><br><span class="line">print(&apos;Output array: &apos;, test_array)</span><br></pre></td></tr></table></figure></p>
+<p>The python code:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">quicksort</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> __init__<span class="params">(<span class="keyword">self</span>, array)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.A = array</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(<span class="keyword">self</span>, p, r)</span></span><span class="symbol">:</span></span><br><span class="line">        x = <span class="keyword">self</span>.A[r]</span><br><span class="line">        i = p - <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> np.arange(p, r)<span class="symbol">:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">self</span>.A[j] &lt;= <span class="symbol">x:</span></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">self</span>.A[i], <span class="keyword">self</span>.A[j] = <span class="keyword">self</span>.A[j], <span class="keyword">self</span>.A[i]</span><br><span class="line">        <span class="keyword">self</span>.A[i + <span class="number">1</span>], <span class="keyword">self</span>.A[r] = <span class="keyword">self</span>.A[r], <span class="keyword">self</span>.A[i + <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">randomized_partition</span><span class="params">(<span class="keyword">self</span>, p, r)</span></span><span class="symbol">:</span></span><br><span class="line">        i = np.random.randint(p, r + <span class="number">1</span>) <span class="comment"># [p, r] range</span></span><br><span class="line">        <span class="keyword">self</span>.A[i], <span class="keyword">self</span>.A[r] = <span class="keyword">self</span>.A[r], <span class="keyword">self</span>.A[i]</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.partition(p, r)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">randomized_quicksort</span><span class="params">(<span class="keyword">self</span>, p, r)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">if</span> p &lt; <span class="symbol">r:</span></span><br><span class="line">            q = <span class="keyword">self</span>.randomized_partition(p, r)</span><br><span class="line">            <span class="keyword">self</span>.randomized_quicksort(p, q - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">self</span>.randomized_quicksort(q+<span class="number">1</span>, r)</span><br><span class="line"><span class="comment">#__________________________________________________________</span></span><br><span class="line">test_array = [<span class="number">13</span>, <span class="number">19</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">12</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">21</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">11</span>]</span><br><span class="line">print(<span class="string">'Input array:'</span>, test_array)</span><br><span class="line">sort_task = quicksort(test_array)</span><br><span class="line">sort_task.randomized_quicksort(<span class="number">0</span>, len(test_array) - <span class="number">1</span>)</span><br><span class="line">print(<span class="string">'Output array: '</span>, test_array)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Counting-Sort-Radix-Sort-and-Bucket-Sort"><a href="#Counting-Sort-Radix-Sort-and-Bucket-Sort" class="headerlink" title="Counting Sort, Radix Sort and Bucket Sort"></a>Counting Sort, Radix Sort and Bucket Sort</h2><p>They are not limited by the bound of $ \Omega(n*log(n)) $ because they depend on some requirements or some calculations. </p>
 <h3 id="Counting-Sort"><a href="#Counting-Sort" class="headerlink" title="Counting Sort"></a>Counting Sort</h3><ul>
 <li>Elements value start from zero and no more than $w$. All elements are integers.</li>
 </ul>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/Sunny7464/2018/08/18/my-first-blog/" rel="next" title="My first blog">
-                <i class="fa fa-chevron-left"></i> My first blog
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Sunny7464/2018/09/17/Learning-Algorithms-Data-Structure-Intro/" rel="prev" title="[Learning Algorithms] - Data Structure Intro">
-                [Learning Algorithms] - Data Structure Intro <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Jiaao</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/Sunny7464/archives/">
-                
-                    <span class="site-state-item-count">27</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
+        <br>
+        <div id="comment-container">
         </div>
-      </section>
+        <div id="disqus_thread"></div>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">1.</span> <span class="nav-text">Merge Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap-Sort"><span class="nav-number">2.</span> <span class="nav-text">Heap Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Sort"><span class="nav-number">3.</span> <span class="nav-text">Quick Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counting-Sort-Radix-Sort-and-Bucket-Sort"><span class="nav-number">4.</span> <span class="nav-text">Counting Sort, Radix Sort and Bucket Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting-Sort"><span class="nav-number">4.1.</span> <span class="nav-text">Counting Sort</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
+        <div id="lv-container">
+        </div>
 
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jiaao</span>
-
-  
-
-  
+</div>
+    </div>
 </div>
 
 
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.8.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.0</div>
-
-
-
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
 
         
 
-
-
-
-
-
-
+        
 
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+        <li>
+            <a target="_blank" href="https://github.com/https://github.com/jiaaodong">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
         
-      </div>
+
+        
+
+    </ul>
     
-
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://blog.csdn.net/weixin_40994913">CSDN 博客</a></span>
+        <span>/</span>
+        
+    </p>
     
-	
-    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
 
-    
-  </div>
 
-  
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/Sunny7464/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/Sunny7464/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/Sunny7464/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/Sunny7464/js/src/utils.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="/Sunny7464/js/src/motion.js?v=6.4.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/Sunny7464/js/src/scrollspy.js?v=6.4.0"></script>
-<script type="text/javascript" src="/Sunny7464/js/src/post-details.js?v=6.4.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/Sunny7464/js/src/bootstrap.js?v=6.4.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-  
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/Sunny7464/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/Sunny7464/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
 </html>
