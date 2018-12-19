@@ -11,7 +11,7 @@
 
     <title>
         
-        C++ Primer Plus 学习笔记1：循环结构 - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
+        Leetcode 2. Add Two Numbers - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目要求"><span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#例子："><span class="toc-text">例子：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路："><span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#要点："><span class="toc-text">要点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码："><span class="toc-text">代码：</span></a></li></ol>
 </div>
     
 </div>
@@ -119,15 +119,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        C++ Primer Plus 学习笔记1：循环结构
+        Leetcode 2. Add Two Numbers
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-11-22 14:37:27</span></span>
+        <span class="attr">发布于：<span>2018-12-19 21:38:38</span></span>
         
         <span class="attr">标签：/
         
-        <a class="tag" href="/Sunny7464/tags/#-C++ Primer Plus" title="-C++ Primer Plus">-C++ Primer Plus</a>
+        <a class="tag" href="/Sunny7464/tags/#Leetcode" title="Leetcode">Leetcode</a>
         <span>/</span>
         
         
@@ -137,34 +137,17 @@
 
     </div>
     <div class="post-content ">
-        <ul>
-<li>For 循环中省略了测试条件时，将认为条件为true。</li>
-<li><code>clock_t</code>为系统时间的类型名的别名，因此无论系统时间是<code>long</code> 还是 <code>unsigned long</code>，都可以用<code>clock_t</code>声明。<code>CLOCKS_PER_SEC</code>定义了系统时间与秒的换算关系。</li>
-<li><code>typedef</code>与<code>#define</code>的区别是<code>define</code>在声明多个变量时候只能拿别名替换一次，如果遇到<code>#define byte char*</code>然后用<code>byte a,b</code>声明两个变量，就会变为<code>char* a,b</code>。这就是预处理器的作用——讲代码做一些自动的“复制粘贴”。</li>
-<li><p>C++11开始提供了基于范围的<code>for</code>循环，主要用于循环容器变量内部的值。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> x: &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<h1 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h1><blockquote>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.</p>
+</blockquote>
+<h1 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h1><p>每一位相加，当前位推入链表，记录进位数值，每一次的当前位都等于两个当前位数字相加再加上进位数字。</p>
+<h1 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h1><ul>
+<li>复习一下c++中地址的使用、类的定义，链表是最简单的常用自定义数据类型之一了。</li>
+<li>因为是单链表，没有<code>prev</code>，所以既要定义起始node的地址，也要记录node的变量名，node的地址在迭代过程中不断在变，为了最后还能找到起始点。</li>
+<li>比较特殊的情况就是两个数字的位数不同，这种情况下可以在该位补0。<h1 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="function">ListNode <span class="title">StartFrom</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">        ListNode *p = &amp;StartFrom;</span><br><span class="line">        <span class="keyword">int</span> carry=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l1 || l2 || carry)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> term1 = l1 ? l1-&gt;val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> term2 = l2 ? l2-&gt;val : <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> sum = term1 + term2 + carry;</span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">int</span> digits = sum % <span class="number">10</span>;           </span><br><span class="line">            p-&gt;next = <span class="keyword">new</span> ListNode(digits);</span><br><span class="line">             p = p-&gt;next;</span><br><span class="line">            l1 = l1? l1-&gt;next : <span class="number">0</span>;</span><br><span class="line">            l2 = l2? l2-&gt;next : <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> StartFrom.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>三种不同的输入字符的方法进行比较（==以后应该单独开一个博客写==）</p>
-<ul>
-<li><code>cin</code>忽略空格和换行符，即使输入了也不会读取。发送给<code>cin</code>的输入被存到缓冲区，只有在用户按下回车后，输入的内容才会发送给程序。</li>
-<li><code>cin.get(ch)</code>将读取一行输入，然后将其赋值给<code>ch</code>。这种输入方式仍然将输入先存到缓冲器，按下回车后发送给程序。 </li>
-</ul>
-</li>
-<li>UNIX通过<code>ctrl+D</code>在键盘模拟文件尾条件。</li>
-<li>如果要想修改函数外的值，一定要在声明的时候将该参数声明为引用，或者传递该参数的地址。</li>
-<li><p>因为C++支持输入输出的重定向，所以如果输入的是文件，我们就需要检测文件的EOF（end of file）。如何检测呢？最常见的方法是：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.get(ch);</span><br><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>.fail()==fail)</span><br><span class="line">&#123;</span><br><span class="line">	...</span><br><span class="line">	<span class="built_in">cin</span>.get(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更高效的方法是：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>.get(ch)&#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>因为<code>cin.get(ch)</code>的返回值是<code>cin</code>，而<code>cin</code>会在需要<code>bool</code>值的位置自动返回<code>bool</code>量，如果成功则为<code>true</code>。</p>
-</li>
-<li>EOF是一个已经定义好的常量，如果用<code>cin.get()</code>函数，那么直接把新读取的字符与EOF做比较就可以了。注意：有些时候不允许将<code>char</code>类型与EOF作比较，那时需要强制类型转换到<code>int</code>。</li>
-<li>赋值语句的值为左操作数的值</li>
-<li>用<code>cin.get(ch)</code>更加符合面向对象的原则，可以将多个调用串联起来，因为每次<code>cin.get(ch)</code>都会返回一个<code>cin</code>对象，所以<code>cin.get(ch1).get(ch2)</code>是合法的。</li>
-<li>当每一行初始化的数组长度不同时（主要指的是char数组，即字符串），可以将长度不同的字符串组成的数组初始化为<code>char</code>指针数组。</li>
-<li><code>cin</code>忽略空格、换行符和制表符。</li>
 </ul>
 
         
