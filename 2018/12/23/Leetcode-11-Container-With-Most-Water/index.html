@@ -11,7 +11,7 @@
 
     <title>
         
-        Leetcode 62. Unique Paths - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
+        Leetcode 11. Container With Most Water - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-1"><span class="toc-text">Examples 1:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples-2"><span class="toc-text">Examples 2:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路："><span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码："><span class="toc-text">代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点："><span class="toc-text">知识点：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目："><span class="toc-text">题目：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#例子："><span class="toc-text">例子：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路："><span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码（暴力）："><span class="toc-text">代码（暴力）：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码（两点法）："><span class="toc-text">代码（两点法）：</span></a></li></ol>
 </div>
     
 </div>
@@ -119,35 +119,31 @@
 
 <div class="post-container">
     <div class="post-title">
-        Leetcode 62. Unique Paths
+        Leetcode 11. Container With Most Water
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-12-11 06:37:29</span></span>
+        <span class="attr">发布于：<span>2018-12-23 21:39:47</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/Sunny7464/tags/#Leetcode" title="Leetcode">Leetcode</a>
+        <span>/</span>
         
         
+        </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
 </span>
 
     </div>
     <div class="post-content ">
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h2><p>A robot is located at the top-left corner of a m x n grid (marked ‘Start’ in the diagram below).</p>
-<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
-<p><img src="https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png" alt="在这里插入图片描述"></p>
-<p>How many possible unique paths are there?</p>
-<h2 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples 1:"></a>Examples 1:</h2><p>Input: m = 3, n = 2<br>Output: 3<br>Explanation:<br>From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:</p>
-<ol>
-<li>Right -&gt; Right -&gt; Down</li>
-<li>Right -&gt; Down -&gt; Right</li>
-<li>Down -&gt; Right -&gt; Right<h2 id="Examples-2"><a href="#Examples-2" class="headerlink" title="Examples 2:"></a>Examples 2:</h2>Input: m = 7, n = 3<br>Output: 28</li>
-</ol>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>又是一道非常典型的动态规划题目，还记得学机器学习中的强化学习时候，也是以动态规划开篇的。这道题和跳楼梯、整数求和的问题都是一样的。<br>跳楼梯：一次可以跨一步也可以跨两步，给定楼梯数量，有多少种走法。<br>整数求和：给定一个整数和一个数组，将整数用数组中的数目的和来表示，有多少种表示方法。</p>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; path(m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">1</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;m; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;n; j++)&#123;</span><br><span class="line">                path[i][j] = path[i - <span class="number">1</span>][j] + path[i][j<span class="number">-1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> path[m<span class="number">-1</span>][n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><ol>
-<li>边界条件的确定：所有的值初始化为1，然后循环从i = 1, m = 1开始</li>
-<li>初始化二维vector的时候可以用<code>vector&lt;vector&lt;int&gt;&gt; path(m, vector&lt;int&gt;(n, 1))</code></li>
-</ol>
-
+        <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p>Given n non-negative integers a1, a2, …, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+<p>Note: You may not slant the container and n is at least 2.</p>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg" alt="Alt"></p>
+<h1 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h1><p>Input: [1,8,6,2,5,4,8,3,7]<br>Output: 49</p>
+<h1 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h1><p>暴力，复杂度$n^2$<br>两边缩小到中间，每次都留下比较高的那边，缩短比较矮的那边。</p>
+<h1 id="代码（暴力）："><a href="#代码（暴力）：" class="headerlink" title="代码（暴力）："></a>代码（暴力）：</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> tank_h, tank_w;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.size(); i++)&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;height.size(); j++)&#123;</span><br><span class="line">                    </span><br><span class="line">                tank_h = height[i]&gt;height[j]? height[j]: height[i];</span><br><span class="line">                tank_w = j-i;</span><br><span class="line">                max = tank_h*tank_w &gt; max? tank_h*tank_w:max;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="代码（两点法）："><a href="#代码（两点法）：" class="headerlink" title="代码（两点法）："></a>代码（两点法）：</h1>
         
         <br>
         <div id="comment-container">
