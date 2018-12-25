@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/Sunny7464/img/favicon.ico">
+
+    <title>
+        
+        Leetcode-19 Remove Nth Node From End of List - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Sunny7464/css/aircloud.css">
+    <link rel="stylesheet" href="/Sunny7464/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/Sunny7464/img/avator.jpg">
+        </div>
+        <div class="name">
+            <i>Jiaao DONG</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/Sunny7464/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目："><span class="toc-text">题目：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#例子："><span class="toc-text">例子：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注释："><span class="toc-text">注释：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#额外要求："><span class="toc-text">额外要求：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#思路："><span class="toc-text">思路：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点："><span class="toc-text">知识点：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码："><span class="toc-text">代码：</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Leetcode-19 Remove Nth Node From End of List
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-12-25 07:15:41</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/Sunny7464/tags/#Leetcode" title="Leetcode">Leetcode</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p>Given a linked list, remove the n-th node from the end of list and return its head.</p>
+<h1 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h1><p>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.</p>
+<p>After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.</p>
+<h1 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h1><p>Given n will always be valid.</p>
+<h1 id="额外要求："><a href="#额外要求：" class="headerlink" title="额外要求："></a>额外要求：</h1><p>Could you do this in one pass?</p>
+<h1 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h1><p>根据提示，可以用两个指针，<code>first</code>指针标记链表的末尾，<code>second</code>指针标记链表末尾之前n位的链表。然后当链表到了末尾后，将<code>second</code>指针的下一位连到<code>second</code>指针的上一位。</p>
+<h1 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h1><ul>
+<li><code>second</code>指针要在<code>first</code>指针之前的<code>n+1</code>位，因为这是单链表，没有<code>second-&gt;prev</code>的指针，所以在去除链表倒数第<code>n</code>位的时候，只能用<code>second-&gt;next = second-&gt;next-&gt;next</code>。</li>
+<li>所有的临界情况都要考虑全面，比如只有一个元素的时候<code>input: [1] 1</code></li>
+<li>出于上面一条的原因，<code>first</code>和<code>second</code>指针的起点要设置在<code>head</code>之前，可以省去判断。</li>
+<li>C++的指针要用<code>-&gt;</code>运算符</li>
+<li>复习C++的constructor：如果需要返回的是一个指针，要用<code>ListNode* first = new ListNode(0)</code></li>
+<li>函数的输入参数中，链表头是<code>head</code>指针，指向的是一个数值为<code>val</code>，下一位是<code>next</code>的<code>ListNode</code>，如果被去掉的是链表头，那<code>head</code>依然还是会指向这个node。因为我们是用<code>second-&gt;next = second-&gt;next-&gt;next</code>来去掉节点的，所以改变的是<code>second-&gt;next</code>，没有改变<code>head</code>，即使<code>second-&gt;next</code>是从<code>head</code>开始的，但<code>second</code>只是个指针变量，存储的是当前指向的地址。</li>
+<li>出于上面一条的原因，可以用一个<code>dummy</code>变量存储初始点的地址，最后返回<code>dummy-&gt;next</code></li>
+</ul>
+<h1 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* ptr1 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* ptr2 = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* dummy = ptr1;</span><br><span class="line">        ptr1-&gt;next = head;</span><br><span class="line">        ptr2-&gt;next = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            ptr2 = ptr2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(ptr2-&gt;next!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            ptr2 = ptr2-&gt;next;</span><br><span class="line">            ptr1 = ptr1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ptr1-&gt;next = ptr1-&gt;next-&gt;next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/jiaaodong">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://blog.csdn.net/weixin_40994913">CSDN 博客</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/Sunny7464/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/Sunny7464/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
