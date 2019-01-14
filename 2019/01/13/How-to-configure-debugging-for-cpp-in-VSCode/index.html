@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/Sunny7464/img/favicon.ico">
+
+    <title>
+        
+        How-to-configure-debugging-for-cpp-in-VSCode - Jiaao DONG的博客 | Jiaao DONG&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Sunny7464/css/aircloud.css">
+    <link rel="stylesheet" href="/Sunny7464/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/Sunny7464/img/avator.jpg">
+        </div>
+        <div class="name">
+            <i>Jiaao DONG</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/Sunny7464/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Sunny7464/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstraction"><span class="toc-text">Abstraction:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1-Configuration-the-debugger-in-VSC"><span class="toc-text">Part 1: Configuration the debugger in VSC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Install-the-extension"><span class="toc-text">1. Install the extension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Install-GCC"><span class="toc-text">2. Install GCC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Create-a-cpp-file"><span class="toc-text">3. Create a cpp file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Create-a-CMakeLists-txt"><span class="toc-text">4. Create a CMakeLists.txt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Configure-the-external-tasks"><span class="toc-text">5. Configure the external tasks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Create-the-tasks-json-file-in-VSC"><span class="toc-text">5.1 Create the tasks.json file in VSC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-Edit-the-properties-of-tasks-json-file"><span class="toc-text">5.2 Edit the properties of tasks.json file</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Configure-the-launch-file"><span class="toc-text">6. Configure the launch file</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-Create-launch-json-file"><span class="toc-text">6.1 Create launch.json file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-Edit-launch-json-file"><span class="toc-text">6.2 Edit launch.json file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Start-debugging"><span class="toc-text">7. Start debugging</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-2-From-C-text-file-to-executables-on-Linux"><span class="toc-text">Part 2: From C++ text file to executables on Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Preprocessing-compiling-and-linking"><span class="toc-text">1. Preprocessing, compiling and linking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CMake-Make-and-Compiler"><span class="toc-text">2. CMake, Make and Compiler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference:</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        How-to-configure-debugging-for-cpp-in-VSCode
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-01-13 18:31:09</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/Sunny7464/tags/#Tools, Ubuntu" title="Tools, Ubuntu">Tools, Ubuntu</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <h1 id="Abstraction"><a href="#Abstraction" class="headerlink" title="Abstraction:"></a>Abstraction:</h1><p>This article describes how to configure the C++ program debugger in Visual Studio Code(VSC from now on) on Ubuntu 18.04. As supplementary knowledge, the compilation process of C++ program is explained in the second part.</p>
+<p>The tutorials on websites are either too old to use(since VSC is a fast developing software toolkit) or too simple without details and explanations.</p>
+<h1 id="Part-1-Configuration-the-debugger-in-VSC"><a href="#Part-1-Configuration-the-debugger-in-VSC" class="headerlink" title="Part 1: Configuration the debugger in VSC"></a>Part 1: Configuration the debugger in VSC</h1><h2 id="1-Install-the-extension"><a href="#1-Install-the-extension" class="headerlink" title="1. Install the extension"></a>1. Install the extension</h2><p>VSC now has an excellent extension for C++ with a lot of user-friendly features. The first step to debug C++ code is to install this extension. Search the extension in VSC and install it.<br><img src="http://pjy6fsofa.bkt.clouddn.com/cpp_extension.png" alt="extension"></p>
+<h2 id="2-Install-GCC"><a href="#2-Install-GCC" class="headerlink" title="2. Install GCC"></a>2. Install GCC</h2><p>GCC is one of the most commonly used compilers in Ubuntu system or other Linux systems. Install GCC if you don’t have it on your computer by:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gcc</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-Create-a-cpp-file"><a href="#3-Create-a-cpp-file" class="headerlink" title="3. Create a cpp file"></a>3. Create a cpp file</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/HelloWorld/src</span><br><span class="line"><span class="built_in">cd</span> /HelloWorld/src</span><br></pre></td></tr></table></figure>
+<p>Create a file called <strong>helloworld.cpp</strong> in VSCode. And copy the code below in the file:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello Visual Studio Code! :)"</span> &lt;&lt; <span class="string">'\n'</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><em>The arguments of the main function is mandatory, otherwise the debugging wouldn’t go through itself freely. It will be stuck after the debug button is pressed.</em></p>
+<h2 id="4-Create-a-CMakeLists-txt"><a href="#4-Create-a-CMakeLists-txt" class="headerlink" title="4. Create a CMakeLists.txt"></a>4. Create a CMakeLists.txt</h2><p>This can be done by cmaketools extension in VSC. But creating automatically means lack of flexibility. So I still choose to create the CMakeLists.txt file manually.</p>
+<p>Create the <strong>CMakeLists.txt</strong> file under the directory <strong>HelloWorld</strong> with following content:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(hello-vsc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(SOURCE helloworld.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> <span class="variable">$&#123;SOURCE&#125;</span>)</span><br></pre></td></tr></table></figure></p>
+<p>This is the simplest version which specifies the cmake requirement, project name and adds an executable. <code>set</code> means setting the variable <code>SOURCE</code> as <code>helloworld.cpp</code>. Then the variable name <code>SOURCE</code> can be used in other parts within this file.</p>
+<h2 id="5-Configure-the-external-tasks"><a href="#5-Configure-the-external-tasks" class="headerlink" title="5. Configure the external tasks"></a>5. Configure the external tasks</h2><p>C++ source code needs to be built to generate the executables. The compilation process is in Part 2. In this step, a <strong>tasks.json</strong> file is created to perform command line tasks automatically. It is like definining a macro in VSC. </p>
+<blockquote>
+<p>Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include the TypeScript Compiler, linters like ESLint and TSLint as well as build systems like Make, Ant, Gulp, Jake, Rake and MSBuild.<br>These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code. <a href="https://code.visualstudio.com/docs/editor/tasks#vscode" target="_blank" rel="noopener">This is from the official website</a></p>
+</blockquote>
+<h3 id="5-1-Create-the-tasks-json-file-in-VSC"><a href="#5-1-Create-the-tasks-json-file-in-VSC" class="headerlink" title="5.1 Create the tasks.json file in VSC"></a>5.1 Create the tasks.json file in VSC</h3><p>Press “Ctrl + Shift + P” to open the so called command palette in VSC. Then type <code>Tasks:Configure Task</code> (Actually this will be auto-completed by VSC). Choose <code>Create tasks.json file from template</code> and then choose <code>Others</code>. A new tasks.json template will pop out. </p>
+<p>Step 1:<br><img src="http://pjy6fsofa.bkt.clouddn.com/Task1.png" alt="task1"></p>
+<p>Step 2:<br><img src="http://pjy6fsofa.bkt.clouddn.com/task2.png" alt="task2"></p>
+<p>Step 3:<br><img src="http://pjy6fsofa.bkt.clouddn.com/task3.png" alt="task3"></p>
+<p><em>VSC uses many configuration json files including tasks.json and the one which will be mentioned in the next step called launch.json. These files are saved in folder <strong>.vscode</strong>.</em></p>
+<h3 id="5-2-Edit-the-properties-of-tasks-json-file"><a href="#5-2-Edit-the-properties-of-tasks-json-file" class="headerlink" title="5.2 Edit the properties of tasks.json file"></a>5.2 Edit the properties of tasks.json file</h3><p>There are many properties in json files of VSC such as <a href="https://code.visualstudio.com/docs/editor/tasks#vscode" target="_blank" rel="noopener">the tasks.json properties</a>.</p>
+<p>In our case, we use a tasks.json file as follows:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // See https://go.microsoft.com/fwlink/?LinkId=733558</span><br><span class="line">    // for the documentation about the tasks.json format</span><br><span class="line">    "version": "2.0.0",</span><br><span class="line">    "tasks": [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"cmake"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug .."</span>,</span><br><span class="line">            <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">                <span class="attr">"echo"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"reveal"</span>: <span class="string">"always"</span>,</span><br><span class="line">                <span class="attr">"focus"</span>: <span class="literal">false</span>,</span><br><span class="line">                <span class="attr">"panel"</span>: <span class="string">"shared"</span>,</span><br><span class="line">                <span class="attr">"showReuseMessage"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"clear"</span>: <span class="literal">false</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;/build"</span></span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"make"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"command"</span>:<span class="string">"make -j 8"</span>,</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceRoot&#125;/build"</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"dependsOn"</span>: [</span><br><span class="line">                <span class="string">"cmake"</span>,</span><br><span class="line">                <span class="string">"make"</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Here are the meanings of the properties:</p>
+<p><code>label</code>: The text content that will be displayed when you select the tasks in your tasks list when you run the tasks in command palette by first pressing “shift + ctrl + p” and then type <code>Tasks: Run Task</code>.</p>
+<p><code>type</code>: Whether the tasks is a command line task(in shell) or a process. </p>
+<p><code>command</code>: The shell command that we need to type in the command line like we usually do in Terminal.</p>
+<p><code>presentation</code>: Some settings for output. This is not mandatory.</p>
+<p><code>options</code>: This is important. The <code>options</code> property is used for </p>
+<blockquote>
+<p>Override the defaults for cwd (current working directory), env (environment variables), or shell (default shell). Options can be set per task but also globally or per platform. </p>
+</blockquote>
+<p>As we know we need to type <code>cmake</code> and <code>make</code> in <strong>build</strong> directory. So the current working directory should be modified to build directory under our project folder, which means we need to create the directory in advance.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br></pre></td></tr></table></figure>
+<p><code>cwd</code>: Current working directory</p>
+<p><code>depends</code>: This is the dependancy between tasks. We need this hierarchical structure of tasks because when we refer to the tasks in launch.json file in the next step, only one task can be specified as the tasks before running launch file.</p>
+<p>There is another variable that needs to be explained, the <code>${workspaceRoot}</code>. This is a variable reference for the project folder. More information of variable reference in <a href="https://code.visualstudio.com/docs/editor/variables-reference" target="_blank" rel="noopener">here</a></p>
+<p><code>&quot;cmake -G &#39;Unix Makefiles</code> is the command for cmake. The flag <code>-G</code> is specified because we want the debug executable without optimization, in comparison with the Release. More flags in cmake command <a href="https://cmake.org/cmake/help/v3.13/manual/cmake.1.html" target="_blank" rel="noopener">here</a>.</p>
+<p><em>The example in <a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener">VSCode official tutorial for c++</a> doesn’t use other tools such as CMake and Make. But we really need a cross-platform build system. The reason is in the 2nd part of this article.</em></p>
+<h1 id="6-Configure-the-launch-file"><a href="#6-Configure-the-launch-file" class="headerlink" title="6. Configure the launch file"></a>6. Configure the launch file</h1><h2 id="6-1-Create-launch-json-file"><a href="#6-1-Create-launch-json-file" class="headerlink" title="6.1 Create launch.json file"></a>6.1 Create launch.json file</h2><p>Go to the tab for debug. There would be a small gear for configuration of the launch.json file. Press the gear and commands in command palette will appear. Choose C++(GDB/LLDB) and a launch.json file will pop out.</p>
+<p>Step 1:</p>
+<p><img src="http://pjy6fsofa.bkt.clouddn.com/configure_launch_gear.png" alt="launch1"></p>
+<p>Step 2:</p>
+<p><img src="http://pjy6fsofa.bkt.clouddn.com/GDB.png" alt="launch2"></p>
+<h2 id="6-2-Edit-launch-json-file"><a href="#6-2-Edit-launch-json-file" class="headerlink" title="6.2 Edit launch.json file"></a>6.2 Edit launch.json file</h2><p>The launch.json file is a file to configure your debugger. In python language this is automatically generated while in C++ you need to configure it by yourself.</p>
+<p>The content of the launch.json file could be:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // Use IntelliSense to learn about possible attributes.</span><br><span class="line">    // Hover to view descriptions of existing attributes.</span><br><span class="line">    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">    "version": "0.2.0",</span><br><span class="line">    "configurations": [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb) Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/build/hello-vsc"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>There are also some properties as we saw in <strong>tasks.json</strong>. <a href="https://code.visualstudio.com/docs/editor/debugging#_launch-configurations" target="_blank" rel="noopener">More details are here</a>. Now the most important ones are:</p>
+<p><code>program</code>: The file of the executable. The name <code>hello-vsc</code> is the project name we add in <strong>CMakeLists.txt</strong>. This is the executable name in this project.</p>
+<p><code>preLaunchTask</code>: The task that needs to be performed each time before launching this launch file.</p>
+<p><em>We use GDB or LLDB to debug source code. “GDB Project Debugger allows you to see what is going on `inside’ another program while it executes – or what another program was doing at the moment it crashed.”</em></p>
+<h2 id="7-Start-debugging"><a href="#7-Start-debugging" class="headerlink" title="7. Start debugging"></a>7. Start debugging</h2><p>After configuration of the launch.json file, now the source code is able to be debugged. In debug tab, press debug button or use shortcuts “F5”. </p>
+<p><img src="http://pjy6fsofa.bkt.clouddn.com/Debug.png" alt="debug"></p>
+<h1 id="Part-2-From-C-text-file-to-executables-on-Linux"><a href="#Part-2-From-C-text-file-to-executables-on-Linux" class="headerlink" title="Part 2: From C++ text file to executables on Linux"></a>Part 2: From C++ text file to executables on Linux</h1><p>Now as a supplementary knowledge, let’s go through the building process of a C++ program from the text file to the executable.</p>
+<h2 id="1-Preprocessing-compiling-and-linking"><a href="#1-Preprocessing-compiling-and-linking" class="headerlink" title="1. Preprocessing, compiling and linking"></a>1. Preprocessing, compiling and linking</h2><p>There are three stages between c++ text file and the executables, preprocessing, compiling and linking. The three words combined is equal to the word “build”.</p>
+<p><strong>Preprocessing</strong> is simply copy and paste. The preprocessing syntax such as <code>#include</code> and <code>DEFINE</code> is telling the preprocessor to copy specific code from somewhere to the place you refer to. In this stage, it is the programming language (in our case, C++ code) that is manipulated.</p>
+<p><strong>Compiling</strong> is the stage where the code is translated to machine language. The output of this stage is <code>.obj</code> file. Each text file will generate one object file. In this stage, some compilation error will emerge such as error for the variable names without being declared.</p>
+<p><strong>Linking</strong> is the stage where different source files are linked together. Why do we need this stage? Because in some source files, there are only declarations for functions and libraries. Same code is used for all more than one source files. Then linking process tells the project where to find the definition of functions. The output of this stage is executables. In Windows operating system it is with the extension <code>.exe</code>. While in Linux it doesn’t have extension. At this stage linking error will come such as the function without being defined. </p>
+<h2 id="2-CMake-Make-and-Compiler"><a href="#2-CMake-Make-and-Compiler" class="headerlink" title="2. CMake, Make and Compiler"></a>2. CMake, Make and Compiler</h2><p>“Cmake” is a cross-platform build tool which generates make files, which are inputs for the build systems. “Make” is a build system. A build system is used for compiling and linking to generate an executable. GCC and g++ are compilers for C++ and C who are responsible for compiling code. </p>
+<p>Why do we need CMake, Make and Compilers at the same time?<br>At the begining, the programs are compiled manually and linked together. We can still compile a single file using only the compilers. In most IDE, this is still an option (e.g. in Visual Studio and Visual Studio Code). </p>
+<p>Compiling thousands of source code files and linked them one by one is not a good way for large project. Not mention there are different modes such as Release and Debug. Therefore, automatic build system is created such as “make”.</p>
+<blockquote>
+<p>GNU Make is a tool which controls the generation of executables and other non-source files of a program from the program’s source files. </p>
+</blockquote>
+<p>“Make” is a good system with automation. But different build systems are limited to different platforms. In windows and linux probably the build systems are different. Here comes CMake, a cross-platform build tool.</p>
+<blockquote>
+<p>CMake is an open-source, cross-platform family of tools designed to build, test and package software. CMake is used to control the software compilation process using simple platform and compiler independent configuration files, and generate native makefiles and workspaces that can be used in the compiler environment of your choice.</p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
+<li>VSCode Official tutorials <a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener">C/C++ for Visual Studio Code (Preview)</a></li>
+<li>stackoverflow answer <a href="https://stackoverflow.com/questions/7859623/how-do-i-use-cmake/7859663#7859663" target="_blank" rel="noopener">How do I use CMake?</a></li>
+<li>stackoverflow answer <a href="https://stackoverflow.com/questions/39761924/understanding-roles-of-cmake-make-and-gcc" target="_blank" rel="noopener">Understanding roles of CMake, make and GCC</a></li>
+<li>YouTube video TheChernoProject <a href="https://www.youtube.com/watch?v=LKLuvoY6U0I&amp;list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&amp;index=4" target="_blank" rel="noopener">How the C++ compiler works</a></li>
+<li>stackoverflow answer <a href="https://stackoverflow.com/questions/12475056/how-does-cmake-choose-gcc-and-g-for-compiling" target="_blank" rel="noopener">How does CMake choose gcc and g++ for compiling?</a></li>
+<li><a href="https://www.gnu.org/software/gdb/" target="_blank" rel="noopener">GDB homepage</a></li>
+<li>Medium article <a href="https://medium.com/audelabs/c-development-using-visual-studio-code-cmake-and-lldb-d0f13d38c563" target="_blank" rel="noopener">C++ Development using Visual Studio Code, CMake and LLDB</a></li>
+<li>CMake Tool <a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/getting_started.html#gs-configuring" target="_blank" rel="noopener">Getting start</a></li>
+<li>stackoverflow anser <a href="https://stackoverflow.com/questions/51599106/visual-studio-code-running-prelaunchtask-with-multiple-tasks" target="_blank" rel="noopener">Visual Studio Code: running preLaunchTask with multiple tasks</a></li>
+</ol>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/jiaaodong">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://blog.csdn.net/weixin_40994913">CSDN 博客</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/Sunny7464/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/Sunny7464/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://airclouds-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
